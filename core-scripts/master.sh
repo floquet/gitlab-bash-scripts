@@ -14,6 +14,7 @@ source "${core}/finds.sh"
 source "${core}/cmake.sh"
 source "${core}/copy-configuration.sh"  &
 
+source "${core}/c.sh"
 source "${core}/fortran.sh"
 source "${core}/bookmarks.sh"
 

@@ -14,6 +14,7 @@ source "${core}/finds.sh"
 source "${core}/cmake.sh"
 source "${core}/copy-configuration.sh"  &
 
+source "${core}/c.sh"
 source "${core}/fortran.sh"
 source "${core}/bookmarks.sh"
 
@@ -23,7 +24,7 @@ source "${core}/info.sh"
 source "${core}/uname.sh"               &
 source "${core}/spack.sh"
 # source "${core}/lstopo.sh"              &
-source "${core}/modules.sh"
+# source "${core}/modules.sh"
 source "${core}/alias.sh"
 source "${core}/environment.sh"
 

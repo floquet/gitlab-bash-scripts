@@ -10,8 +10,12 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 # Mac
 # cat ~/.ssh/id_rsa.pub | pbcopy
 
+<<<<<<< HEAD
 # ssh-keygen -t rsa -C "daniel.topa@ertcorp.com" -b 4096
 alias generate_key="ssh-keygen -t rsa -C "daniel.topa@ertcorp.com" -b 4096"
+=======
+# ssh-keygen -t rsa -C "dantopa@gmail.com" -b 4096
+>>>>>>> 01c43c15c312a9065d6649308b6227f17cd0bac5
 alias resetSSH='echo "ssh-keygen -f ~/.ssh/id_rsa -p"; ssh-keygen -f ~/.ssh/id_rsa -p'
 
 # ihpc:    crypto card

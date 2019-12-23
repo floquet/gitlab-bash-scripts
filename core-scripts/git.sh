@@ -3,10 +3,11 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # http://stackoverflow.com/questions/1125968/how-to-force-git-pull-to-overwrite-local-files
 alias overwrite="git reset --hard HEAD"
+alias ggit="git add -A ."
 
 # https://stackoverflow.com/questions/783811/getting-git-to-work-with-a-proxy-server
 #alias get_git_proxies='echo "http proxy: "; git config --global --get http.proxy; echo "https proxy: "; git config --global --get https.proxy'
-alias set_git_proxies='git config --global http.proxy http://proxyout.lanl.gov:8080; git config --global https.proxy http://proxyout.lanl.gov:8080'
+alias set_git_proxies='git config --global http.proxy http://proxyout.ertcorp.com:8080; git config --global https.proxy http://proxyout.ertcorp.com:8080'
 #alias git_clone='echo "git clone https://github.com/spack/spack"; git clone https://github.com/spack/spack; pwd'
 alias mothership="echo 'git remote show origin'; git remote show origin"
 alias myurl="git config --get remote.origin.url"
@@ -24,7 +25,11 @@ function sign_gpg(){
 
 function dantopa(){
     git config --global user.name "Daniel Topa"
+<<<<<<< HEAD
     git config --global user.email daniel.topa@ertcorp.com
+=======
+    git config --global user.email dantopa@ertcorp.com
+>>>>>>> 01c43c15c312a9065d6649308b6227f17cd0bac5
     git config --global push.default simple
     git config --global color.ui true
     git config --global rerere.enabled true

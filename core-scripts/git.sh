@@ -24,7 +24,7 @@ function sign_gpg(){
 
 function dantopa(){
     git config --global user.name "Daniel Topa"
-    git config --global user.email dantopa@lanl.gov
+    git config --global user.email daniel.topa@ertcorp.com
     git config --global push.default simple
     git config --global color.ui true
     git config --global rerere.enabled true

@@ -32,6 +32,7 @@ export fortran_compiler_mpi_cray="ftn"
 # # F U N C T I O N S
 function gf(){
   echo "gcc compilation flags: "$gflags;
+  echo "gfortran $gflags $1.f08 -o $1"
   gfortran $gflags $1.f08 -o $1
 }
 

@@ -13,7 +13,9 @@ export gflags48="${gflags47} -Wc-binding-type -Wrealloc-lhs-all" # unlimited pol
 export  gflags5="${gflags48} -Wuse-without-only -fdiagnostics-color=auto" # OpemMP fully implemented
 export  gflags6="${gflags5}  -Wconversion-extra" # Submodules fully supoorted
 export  gflags7="${gflags6}  -finit-derived" # new RANDOM_NUMBER with per-thread state
-export   gflags=${gflags7}
+export  gflags8="${gflags7}"
+export  gflags9="${gflags8}"
+export   gflags=${gflags9}"
 
 export cflags="${gflags} -fcoarray=lib"
 export crayflags="-g -fbacktrace"

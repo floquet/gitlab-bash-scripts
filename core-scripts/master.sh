@@ -30,10 +30,10 @@ source "${core}/environment.sh"
 
 wait
 
-# commit the initialization script
+echo "commiting configuration copy..."
 export spot=$(pwd)
 export ymd=$(date +%Y-%m-%d-%H-%M) # timestamp results
-cd ${github}/gitlab-bash-scripts
+cd ${bitbucket}/initialization-scripts
 git add -A .
 git commit -m "${host_name} initialization ${ymd}"
 cd ${spot}

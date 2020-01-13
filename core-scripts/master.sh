@@ -30,7 +30,7 @@ source "${core}/environment.sh"
 
 wait
 
-echo "commiting configuration copy..."
+echo "commiting configuration copy (e.g. ${bash_file}) to ${bitbucket}/initialization-scripts..."
 export spot=$(pwd)
 export ymd=$(date +%Y-%m-%d-%H-%M) # timestamp results
 cd ${bitbucket}/initialization-scripts

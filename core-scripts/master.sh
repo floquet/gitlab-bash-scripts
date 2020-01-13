@@ -26,6 +26,7 @@ source "${core}/spack.sh"
 # source "${core}/lstopo.sh"              &
 # source "${core}/modules.sh"
 source "${core}/alias.sh"
+source "${core}/prompt.sh"
 source "${core}/environment.sh"
 
 wait

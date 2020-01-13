@@ -21,17 +21,17 @@ alias scgre="spack config get repos"
 alias graf="echo 'git remote add floquet https://github.com/floquet/spack.git'; git remote add floquet https://github.com/floquet/spack.git"
 
 # # quick edits
-alias  vhcm="vi ${HOME}/.spack/compilers.yaml"
-alias vhlcm="vi ${HOME}/.spack/linux/compilers.yaml"
+alias  vhcm="vim ${HOME}/.spack/compilers.yaml"
+alias vhlcm="vim ${HOME}/.spack/linux/compilers.yaml"
 
 export thisArch=$(spack arch)
 export dir_yaml="${SPACK_ROOT}/etc/spack/defaults"
 
-alias   vcp="vi ${dir_yaml}/compilers.yaml"
-alias   vcn="vi ${dir_yaml}/config.yaml"
-alias   vmi="vi ${dir_yaml}/mirrors.yaml"
-alias   vmo="vi ${dir_yaml}/modules.yaml"
-alias   vpa="vi ${dir_yaml}/packages.yaml"
+alias   vcp="vim ${dir_yaml}/compilers.yaml"
+alias   vcn="vim ${dir_yaml}/config.yaml"
+alias   vmi="vim ${dir_yaml}/mirrors.yaml"
+alias   vmo="vim ${dir_yaml}/modules.yaml"
+alias   vpa="vim ${dir_yaml}/packages.yaml"
 
 ## openmpi
 alias    sfh="spack find hypre"

@@ -29,3 +29,11 @@ source "${core}/alias.sh"
 source "${core}/environment.sh"
 
 wait
+
+# commit the initialization script
+export spot=$(pwd)
+export ymd=$(date +%Y-%m-%d-%H-%M) # timestamp results
+cd ${github}/gitlab-bash-scripts
+git add -A .
+git commit -m "${host_name} initialization ${ymd}"
+cd ${spot}

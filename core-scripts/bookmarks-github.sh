@@ -15,22 +15,28 @@ if [ -d "${github}/docker" ]; then
     repos_github="${repos_github} docker"
 fi
 
+if [ -d "${github}/gitlab-bash-scripts" ]; then
+    export  gbs="${github}/gitlab-bash-scripts"
+    alias gogbs="cd ${gbs}; pwd"
+    repos_github="${repos_github} gbs"
+fi
+
 if [ -d "${github}/LLNL-bash" ]; then
     export  lbash="${github}/LLNL-bash"
     alias golbash="cd ${lbash}; pwd"
     repos_github="${repos_github} lbash"
 fi
 
-if [ -d "${github}/LLNL-node-queries" ]; then
-    export  lnode="${github}/LLNL-node-queries"
-    alias golnode="cd ${lnode}; pwd"
-    repos_github="${repos_github} lnode"
+if [ -d "${github}/hydro" ]; then
+    export  hydro="${github}/hydro"
+    alias gohydro="cd ${hydro}; pwd"
+    repos_github="${repos_github} hydro"
 fi
 
-if [ -d "${github}/LLNL-node-queries" ]; then
-    export  lnode="${github}/LLNL-node-queries"
-    alias golnode="cd ${lnode}; pwd"
-    repos_github="${repos_github} lnode"
+if [ -d "${github}/modern-fortran" ]; then
+    export  mfortran="${github}/modern-fortran"
+    alias gomfortran="cd ${mfortran}; pwd"
+    repos_github="${repos_github} mfortranmfortran"
 fi
 
 if [ -d "${github}/topa-development" ]; then

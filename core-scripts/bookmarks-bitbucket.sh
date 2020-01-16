@@ -9,6 +9,30 @@ if [ -d "${bitbucket}/bottom" ]; then
     repos_bitbucket="${repos_bitbucket} bottom"
 fi
 
+if [ -d "${bitbucket}/ert" ]; then
+    export  ert="${bitbucket}/ert"
+    alias goert="cd ${ert}; pwd"
+    repos_bitbucket="${repos_bitbucket} ert"
+fi
+
+if [ -d "${bitbucket}/fortran-alpha" ]; then
+    export  fortrana="${bitbucket}/fortran-alpha"
+    alias gofortrana="cd ${fortrana}; pwd"
+    repos_bitbucket="${repos_bitbucket} fortrana"
+fi
+
+if [ -d "${bitbucket}/icons" ]; then
+    export  icons="${bitbucket}/icons"
+    alias goicons="cd ${icons}; pwd"
+    repos_bitbucket="${repos_bitbucket} icons"
+fi
+
+if [ -d "${bitbucket}/latexery" ]; then
+    export  latexery="${bitbucket}/latexery"
+    alias golatexery="cd ${latexery}; pwd"
+    repos_bitbucket="${repos_bitbucket} latexery"
+fi
+
 if [ -d "${bitbucket}/LANL" ]; then
     export          lanl="${bitbucket}/LANL"
     export least_squares="${lanl}/fortran/least-squares"

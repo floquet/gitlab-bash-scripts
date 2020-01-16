@@ -9,21 +9,33 @@ if [ -d "${github}/cuda" ]; then
     repos_github="${repos_github} cuda"
 fi
 
+if [ -d "${github}/docker" ]; then
+    export  ddocker="${github}/docker"
+    alias goddocker="cd ${ddocker}; pwd"
+    repos_github="${repos_github} docker"
+fi
+
 if [ -d "${github}/LLNL-bash" ]; then
     export  lbash="${github}/LLNL-bash"
-    alias golbash="cd ${bottom}; pwd"
+    alias golbash="cd ${lbash}; pwd"
     repos_github="${repos_github} lbash"
 fi
 
 if [ -d "${github}/LLNL-node-queries" ]; then
     export  lnode="${github}/LLNL-node-queries"
-    alias golnode="cd ${bottom}; pwd"
+    alias golnode="cd ${lnode}; pwd"
+    repos_github="${repos_github} lnode"
+fi
+
+if [ -d "${github}/LLNL-node-queries" ]; then
+    export  lnode="${github}/LLNL-node-queries"
+    alias golnode="cd ${lnode}; pwd"
     repos_github="${repos_github} lnode"
 fi
 
 if [ -d "${github}/topa-development" ]; then
     export  topa="${github}/topa-development"
-    alias gotopa="cd ${topa_development}; pwd"
+    alias gotopa="cd ${topa}; pwd"
     repos_github="${repos_github} topa"
 fi
 

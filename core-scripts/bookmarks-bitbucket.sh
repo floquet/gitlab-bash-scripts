@@ -27,6 +27,12 @@ if [ -d "${bitbucket}/icons" ]; then
     repos_bitbucket="${repos_bitbucket} icons"
 fi
 
+if [ -d "${bitbucket}/initialization-scripts" ]; then
+    export  iscripts="${bitbucket}/initialization-scripts"
+    alias goiscripts="cd ${iscripts}; pwd"
+    repos_bitbucket="${repos_bitbucket} iscripts"
+fi
+
 if [ -d "${bitbucket}/latexery" ]; then
     export  latexery="${bitbucket}/latexery"
     alias golatexery="cd ${latexery}; pwd"

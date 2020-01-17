@@ -19,6 +19,7 @@ alias scgpa="spack config get packages"
 alias scgre="spack config get repos"
 
 alias graf="echo 'git remote add floquet https://github.com/floquet/spack.git'; git remote add floquet https://github.com/floquet/spack.git"
+alias feed_spack_mirror="echo 'rsync -vauh ${SPACK_ROOT}/var/spack/cache/_source-cache/archive/. ${big_spack_mirror}/_source-cache/archive/.'; rsync -vauh ${SPACK_ROOT}/var/spack/cache/_source-cache/archive/. ${big_spack_mirror}/_source-cache/archive/."
 
 # # quick edits
 alias  vhcm="vim ${HOME}/.spack/compilers.yaml"

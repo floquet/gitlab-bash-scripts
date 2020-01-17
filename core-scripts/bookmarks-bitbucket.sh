@@ -33,12 +33,6 @@ if [ -d "${bitbucket}/initialization-scripts" ]; then
     repos_bitbucket="${repos_bitbucket} iscripts"
 fi
 
-if [ -d "${bitbucket}/latexery" ]; then
-    export  latexery="${bitbucket}/latexery"
-    alias golatexery="cd ${latexery}; pwd"
-    repos_bitbucket="${repos_bitbucket} latexery"
-fi
-
 if [ -d "${bitbucket}/LANL" ]; then
     export          lanl="${bitbucket}/LANL"
     export least_squares="${lanl}/fortran/least-squares"
@@ -47,6 +41,12 @@ if [ -d "${bitbucket}/LANL" ]; then
     alias         gomods="cd ${least_squares}/module-library; pwd"
     alias       gocircle="cd ${least_squares}/circle; pwd"
     repos_bitbucket="${repos_bitbucket} lanl"
+fi
+
+if [ -d "${bitbucket}/latexery" ]; then
+    export  latexery="${bitbucket}/latexery"
+    alias golatexery="cd ${latexery}; pwd"
+    repos_bitbucket="${repos_bitbucket} latexery"
 fi
 
 if [ -d "${bitbucket}/LLNL-lap" ]; then

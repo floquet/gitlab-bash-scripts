@@ -40,6 +40,8 @@ alias    sfo="spack find openmpi"
 alias sfhldf="spack find -ldf hypre"
 alias sfoldf="spack find -ldf openmpi"
 
+alias sli="spack location --install"
+
 ## modules
 alias reft="echo 'spack module tcl  refresh --delete-tree -y'; spack module tcl  refresh --delete-tree -y"
 alias refl="echo 'spack module lmod refresh --delete-tree -y'; spack module lmod refresh --delete-tree -y"

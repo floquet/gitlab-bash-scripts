@@ -27,7 +27,7 @@ alias sweep_repos="echo '. \${core}/git-puller.sh'; . ${core}/git-puller.sh"
 # zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
 # zstyle ':vcs_info:*' enable git
 
-# root@ac0efb9c551b:core-scripts $ . git.sh 
+# root@ac0efb9c551b:core-scripts $ . git.sh
 # Mon Jan 20 22:46:31 CET 2020, git.sh
 # bash: autoload: command not found
 # bash: git.sh: line 80: syntax error: unexpected end of file
@@ -44,6 +44,7 @@ function dantopa(){
     git config --global push.default simple
     git config --global color.ui true
     git config --global rerere.enabled true
+    git config --global core.editor "vim"
 }
 
 function get_git_proxies(){

@@ -15,21 +15,21 @@ export  gflags6="${gflags5}  -Wconversion-extra" # Submodules fully supoorted
 export  gflags7="${gflags6}  -finit-derived" # new RANDOM_NUMBER with per-thread state
 export  gflags8="${gflags7}"
 export  gflags9="${gflags8}"
-export   gflags=${gflags9}"
+export   gflags="${gflags9}"
 
-export cflags="${gflags} -fcoarray=lib"
-export crayflags="-g -fbacktrace"
+# export cflags="${gflags} -fcoarray=lib"
+# export crayflags="-g -fbacktrace"
 
-export nagflags="-g -C=all -colour -compatible -f2008 -free -gc -gline -info -nan -O2 -pg -time -v -V"
+# export nagflags="-g -C=all -colour -compatible -f2008 -free -gc -gline -info -nan -O2 -pg -time -v -V"
 
 alias  echogf="echo $gflags"
 alias  echocf="echo $cflags"
 
 #  #  C O M P I L E
-export fortran_compiler_gnu="gfortran"
-export fortran_compiler_caf="caf"
-export fortran_compiler_mpi_gnu="mpif90"
-export fortran_compiler_mpi_cray="ftn"
+# export fortran_compiler_gnu="gfortran"
+# export fortran_compiler_caf="caf"
+# export fortran_compiler_mpi_gnu="mpif90"
+# export fortran_compiler_mpi_cray="ftn"
 
 # # F U N C T I O N S
 function gf(){
@@ -38,20 +38,20 @@ function gf(){
   gfortran $gflags $1.f08 -o $1
 }
 
-function nf(){
-  echo "nag compilation flags: "$nagflags;
-  nagfor $nagflags $1.f08 -o $1
-}
+# function nf(){
+#   echo "nag compilation flags: "$nagflags;
+#   nagfor $nagflags $1.f08 -o $1
+# }
 
-function intelf(){
-  echo "intel compilation flags: "$intelflags;
-  ifor $intelflags -Tf $1.f08 -o $1
-}
+# function intelf(){
+#   echo "intel compilation flags: "$intelflags;
+#   ifor $intelflags -Tf $1.f08 -o $1
+# }
 
-function cf(){
-  caf $gflags -fcoarray=lib $1.f08 -o $1
-}
+# function cf(){
+#   caf $gflags -fcoarray=lib $1.f08 -o $1
+# }
 
-function mp(){
-  mpifort -fcoarray=lib $1.f08 -L/opt/local/lib/ -lcaf_mpi -o $1
-}
+# function mp(){
+#   mpifort -fcoarray=lib $1.f08 -L/opt/local/lib/ -lcaf_mpi -o $1
+# }

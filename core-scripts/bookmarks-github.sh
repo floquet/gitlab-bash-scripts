@@ -3,6 +3,12 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 export repos_github=""
 
+if [ -d "${github}/build-issues" ]; then
+    export  builds="${github}/docker"
+    alias gobuilds="cd ${ddocker}; pwd"
+    repos_github="${repos_github} builds"
+fi
+
 if [ -d "${github}/cuda" ]; then
     export  cuda="${github}/cuda"
     alias gocuda="cd ${cuda}; pwd"

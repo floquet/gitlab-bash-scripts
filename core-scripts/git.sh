@@ -45,6 +45,7 @@ function dantopa(){
     git config --global color.ui true
     git config --global rerere.enabled true
     git config --global core.editor "vim"
+    git config --global merge.tool "meld"
 }
 
 function get_git_proxies(){

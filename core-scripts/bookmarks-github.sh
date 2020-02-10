@@ -45,6 +45,12 @@ if [ -d "${github}/modern-fortran" ]; then
     repos_github="${repos_github} mfortran"
 fi
 
+if [ -d "${github}/nimbus" ]; then
+    export  nimbus="${github}/nimbus"
+    alias gonimbus="cd ${nimbus}; pwd"
+    repos_github="${repos_github} nimbus"
+fi
+
 if [ -d "${github}/topa-development" ]; then
     export  topa="${github}/topa-development"
     alias gotopa="cd ${topa}; pwd"

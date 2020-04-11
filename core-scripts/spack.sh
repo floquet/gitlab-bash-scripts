@@ -17,7 +17,7 @@ alias yaml_cat='mkdir -p "${github}/catalog-spack/${host_name}/${thisArch}/${SPA
  rsync -zarv --prune-empty-dirs --include "*/" --include="*compilers.yaml" --include="*config.yaml" --include="*mirrors.yaml" --include="*modules.yaml" --include="*packages.yaml" --include="*repos.yaml" --exclude="*" "${HOME}/.spack/." "${dir_to}" \
  spack find      > ${dir_to}/find.txt;
  spack find -ldf > ${dir_to}/find-ldf.txt;
- cd ${github}/catalog-spack \
+ cd "${github}/catalog-spack" \
  git add -A . \
  git commit -m "${host_name} $(date +%Y-%m-%d)" \
- cd -;'
+ cd - ;'

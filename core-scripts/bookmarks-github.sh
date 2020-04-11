@@ -9,6 +9,12 @@ if [ -d "${github}/build-issues" ]; then
     repos_github="${repos_github} builds"
 fi
 
+if [ -d "${github}/catalog-spack" ]; then
+    export  catalog="${github}/catalog-spack"
+    alias gocatalog="cd ${catalog}; pwd"
+    repos_github="${repos_github} catalog"
+fi
+
 if [ -d "${github}/cuda" ]; then
     export  cuda="${github}/cuda"
     alias gocuda="cd ${cuda}; pwd"

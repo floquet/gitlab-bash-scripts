@@ -57,6 +57,12 @@ if [ -d "${github}/nimbus" ]; then
     repos_github="${repos_github} nimbus"
 fi
 
+if [ -d "${github}/python" ]; then
+    export d_python="${github}/python"
+    alias  gopython="cd ${d_python}; pwd"
+    repos_github="${repos_github} python"
+fi
+
 if [ -d "${github}/topa-development" ]; then
     export  topa="${github}/topa-development"
     alias gotopa="cd ${topa}; pwd"

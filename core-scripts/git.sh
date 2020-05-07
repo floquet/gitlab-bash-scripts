@@ -2,8 +2,9 @@
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # http://stackoverflow.com/questions/1125968/how-to-force-git-pull-to-overwrite-local-files
-alias overwrite="git reset --hard HEAD"
-alias ggit="git add -A ."
+alias overwrite="echo 'git reset --hard HEAD'; git reset --hard HEAD"
+alias ggit="echo 'git add -A .'; git add -A ."
+alias gs="echo 'git status'; git status"
 
 # https://stackoverflow.com/questions/783811/getting-git-to-work-with-a-proxy-server
 #alias get_git_proxies='echo "http proxy: "; git config --global --get http.proxy; echo "https proxy: "; git config --global --get https.proxy'

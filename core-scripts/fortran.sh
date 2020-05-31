@@ -15,7 +15,8 @@ export  gflags6="${gflags5}  -Wconversion-extra" # Submodules fully supoorted
 export  gflags7="${gflags6}  -finit-derived" # new RANDOM_NUMBER with per-thread state
 export  gflags8="${gflags7}"
 export  gflags9="${gflags8}"
-export   gflags="${gflags9}"
+export gflags10="${gflags9} -fallocation-dce -fprofile-partial-training -fprofile-reproducible -fprofile-prefix-path -fanalyzer"
+export   gflags="${gflags10}"
 
 # export cflags="${gflags} -fcoarray=lib"
 # export crayflags="-g -fbacktrace"

@@ -11,12 +11,19 @@ alias run_reporter=". ${lap}/init/bash/control/spack-reporter.sh"
 alias  sf="spack find"
 alias sfl="spack find -ldf"
 
-alias scgcm="spack config get compilers"
-alias scgcn="spack config get config"
-alias scgmi="spack config get mirrors"
-alias scgmo="spack config get modules"
-alias scgpa="spack config get packages"
-alias scgre="spack config get repos"
+alias scgcm="echo 'spack config get compilers'; spack config get compilers"
+alias scgcn="echo 'spack config get config'   ; spack config get config"
+alias scgmi="echo 'spack config get mirrors'  ; spack config get mirrors"
+alias scgmo="echo 'spack config get modules'  ; spack config get modules"
+alias scgpa="echo 'spack config get packages' ; spack config get packages"
+alias scgre="echo 'spack config get repos'    ; spack config get repos"
+
+alias scbcm="echo 'spack config get compilers'; spack config blame compilers"
+alias scbcn="echo 'spack config get config'   ; spack config blame config"
+alias scbmi="echo 'spack config get mirrors'  ; spack config blame mirrors"
+alias scbmo="echo 'spack config get modules'  ; spack config blame modules"
+alias scbpa="echo 'spack config get packages' ; spack config blame packages"
+alias scbre="echo 'spack config get repos'    ; spack config blame repos"
 
 alias graf="echo 'git remote add floquet https://github.com/floquet/spack.git'; git remote add floquet https://github.com/floquet/spack.git"
 alias feed_spack_mirror="echo 'rsync -vauh ${SPACK_ROOT}/var/spack/cache/_source-cache/. ${big_spack_mirror}/_source-cache/.'; rsync -vauh ${SPACK_ROOT}/var/spack/cache/_source-cache/. ${big_spack_mirror}/_source-cache/."
@@ -33,12 +40,6 @@ alias   vcn="vim ${dir_yaml}/config.yaml"
 alias   vmi="vim ${dir_yaml}/mirrors.yaml"
 alias   vmo="vim ${dir_yaml}/modules.yaml"
 alias   vpa="vim ${dir_yaml}/packages.yaml"
-
-## openmpi
-alias    sfh="spack find hypre"
-alias    sfo="spack find openmpi"
-alias sfhldf="spack find -ldf hypre"
-alias sfoldf="spack find -ldf openmpi"
 
 alias sli="spack location --install"
 

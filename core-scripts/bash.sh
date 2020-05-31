@@ -9,9 +9,12 @@ alias    lss="ls -alh --color"
 alias     sr="source ${HOME}/${bash_file}"  # source bash file
 alias   bcat="cat    ${HOME}/${bash_file}"  # cat    bash file
 alias setnow='export dir_now="$(pwd)"; gonow=cd ${dir_now}'
+alias    lsb="echo 'lsb_release -a'; lsb_release -a"
 
 alias curl_37='grep -r "curl: (37)" .'
 alias   stale='grep  -r "[Errno 116] Stale file handle" .'
+
+
 
 # # path queries
 alias  ep="echo '\${PATH}:';       echo ${PATH}"

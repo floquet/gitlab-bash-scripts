@@ -23,3 +23,13 @@ alias cdebian='echo "docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtl
 alias cfedora='echo "docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli fedora:32";     docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli fedora:32'
 alias cubuntu='echo "docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ubuntu:groovy"; docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ubuntu:groovy'
 alias cphoton='echo "docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli photon:latest"; docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli photon:latest'
+
+function quaxolotl(){
+    echo "docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ${1}"
+          docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ${1}
+}
+
+function xiuhcoatl(){
+    echo "docker run -it -v /Volumes/Tlaloc:/Tlaloc -v /Volumes/Ometecuhtli:/Ometecuhtli -v /Dropbox:/Dropbox ${1}"
+          docker run -it -v /Volumes/Tlaloc:/Tlaloc -v /Volumes/Ometecuhtli:/Ometecuhtli -v /Dropbox:/Dropbox ${1}
+}

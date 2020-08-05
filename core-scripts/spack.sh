@@ -7,9 +7,9 @@ alias l-spack=". ${core}/spack-init.sh"
 alias  gospack="cd ${mySpack}; pwd"
 alias initspack="echo '. share/spack/setup-env.sh';. share/spack/setup-env.sh; echo 'l-spack'; l-spack"
 
-alias gomirror="cd /usr/projects/draco/vendors/spack.mirror; pwd"
+alias gomirror="cd ${big_spack_mirror}; pwd"
 
-alias genesis="git clone https://github.com/spack/spack"
+alias genesis="echo 'git clone https://github.com/spack/spack'; git clone https://github.com/spack/spack"
 
 alias yaml_cat='mkdir -p "${github}/catalog-spack/${host_name}/${thisArch}/${SPACK_ROOT}"; \
  export dir_to="${github}/catalog-spack/${host_name}/${thisArch}/${SPACK_ROOT}"; \

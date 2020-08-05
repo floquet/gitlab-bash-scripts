@@ -51,7 +51,7 @@ alias modt="echo 'spack module tcl  refresh --delete-tree -y'; spack module tcl 
 alias modl="echo 'spack module lmod refresh --delete-tree -y'; spack module lmod refresh --delete-tree -y"
 
 alias mu="echo 'module load lmod'; module load lmod; echo 'module use ${SPACK_ROOT}/share/spack/lmod/$(spack arch)/Core'; module use ${SPACK_ROOT}/share/spack/lmod/$(spack arch)/Core"
-alias fix_module_path="ep; echo ''; module unuse ${SPACK_ROOT}/share/spack/modules/$(spack arch); ep; echo ''; module use ${SPACK_ROOT}/share/spack/lmod/$(spack arch)/Core/; ep; echo ''"
+# alias fix_module_path="ep; echo ''; module unuse ${SPACK_ROOT}/share/spack/modules/$(spack arch); ep; echo ''; module use ${SPACK_ROOT}/share/spack/lmod/$(spack arch)/Core/; ep; echo ''"
 
 function builder(){
     echo "source ${lap_scripts}/sbatch-builder.sh ${1} ${2}"

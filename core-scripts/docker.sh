@@ -13,6 +13,6 @@ function quaxolotl(){
 }
 
 function xiuhcoatl(){
-    echo "docker run -it -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Tlaloc:/Tlaloc ${1}"
-          docker run -it -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Tlaloc:/Tlaloc ${1}
+    echo "docker run -it -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Ometecuhtli:/Ometecuhtli -v /Volumes/Tlaloc:/Tlaloc ${1}"
+          docker run -it -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Ometecuhtli:/Ometecuhtli -v /Volumes/Tlaloc:/Tlaloc ${1}
 }

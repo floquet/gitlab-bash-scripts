@@ -54,17 +54,12 @@ alias modl="echo 'spack module lmod refresh --delete-tree -y'; spack module lmod
 alias mu="echo 'module load lmod'; module load lmod; echo 'module use ${SPACK_ROOT}/share/spack/lmod/$(spack arch)/Core'; module use ${SPACK_ROOT}/share/spack/lmod/$(spack arch)/Core"
 # alias fix_module_path="ep; echo ''; module unuse ${SPACK_ROOT}/share/spack/modules/$(spack arch); ep; echo ''; module use ${SPACK_ROOT}/share/spack/lmod/$(spack arch)/Core/; ep; echo ''"
 
-function builder(){
-    echo "source ${lap_scripts}/sbatch-builder.sh ${1} ${2}"
-          source ${lap_scripts}/sbatch-builder.sh ${1} ${2}
-}
-
 function foo(){
     list="compilers config mirrors modules packages repos"
     for l in ${list}; do
-        echo ""                            >> ${l}
-        echo "spack config get blame ${l}" >> ${l}
-              spack config get blame ${l}  >> ${l}
+        echo ""                            >> ${1}
+        echo "spack config blame ${l}" >> ${1}
+              spack config blame ${l}  >> ${1}
     done
 }
 

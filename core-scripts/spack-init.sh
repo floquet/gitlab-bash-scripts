@@ -59,7 +59,7 @@ function builder(){
           source ${lap_scripts}/sbatch-builder.sh ${1} ${2}
 }
 
-function reporter(){
+function foo(){
     list="compilers config mirrors modules packages repos"
     for l in ${list}; do
         echo ""                            >> ${1}

@@ -57,7 +57,7 @@ alias mu="echo 'module load lmod'; module load lmod; echo 'module use ${SPACK_RO
 function foo(){
     list="compilers config mirrors modules packages repos"
     for l in ${list}; do
-        echo ""                            >> ${1}
+        echo ""                        >> ${1}
         echo "spack config blame ${l}" >> ${1}
               spack config blame ${l}  >> ${1}
     done

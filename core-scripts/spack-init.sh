@@ -58,10 +58,12 @@ function foo(){
     list="compilers config mirrors modules packages repos"
     for l in ${list}; do
         echo ""                        >> ${1}
+        echo  spack config blame ${l}
         echo "spack config blame ${l}" >> ${1}
               spack config blame ${l}  >> ${1}
     done
 }
 
-
 # alias contents_spack='echo "ALIAS  fix_module_path ref sil sml sp scgcm scgcn scgmi scgmo scgpa scgre spack_here spack_https spack_set spack_shell spack_ssh spack_try svicompilers svimodules svimirrors"; echo "EXPORT spack_mirror_draco spack_mirror_scratch"'
+
+

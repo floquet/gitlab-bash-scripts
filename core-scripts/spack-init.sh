@@ -62,9 +62,9 @@ function builder(){
 function reporter(){
     list="compilers config mirrors modules packages repos"
     for l in ${list}; do
-        echo ""                            >> ${1}
-        echo "spack config get blame ${l}" >> ${1}
-              spack config get blame ${l}  >> ${1}
+        echo ""                            >> ${l}
+        echo "spack config get blame ${l}" >> ${l}
+              spack config get blame ${l}  >> ${l}
     done
 }
 

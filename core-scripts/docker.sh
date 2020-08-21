@@ -5,6 +5,10 @@ alias bye="echo 'lsb_release -a; exit'; lsb_release -a; exit"
 alias dimage="echo 'docker images'; docker images"
 
 export dirDockerLocker="${ddocker}"
+export dirDropbox="/Dropbox/2nd-generation/spacktivity/new-mirror"
+alias   mirrorDropbox="echo 'spack mirror add local_filesystem file://${dirDropbox}';spack mirror add local_filesystem file://${dirDropbox}"
+alias mirrorXiuhcoatl="echo 'spack mirror add local_filesystem file://${HOME}${dirDropbox}'; spack mirror add local_filesystem file://${HOME}${dirDropbox}"
+alias mirrorQuaxolotl="echo 'spack mirror add local_filesystem file:///Chaac/cloud${dirDropbox}'; spack mirror add local_filesystem file:///Chaac/cloud${dirDropbox}"
 
 function quaxolotl(){
     echo "docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ${1}"

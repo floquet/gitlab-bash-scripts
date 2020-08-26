@@ -24,4 +24,5 @@ alias yaml_cat='mkdir -p "${github}/catalog-spack/${host_name}/${thisArch}/${SPA
  git commit -m "${host_name} $(date +%Y-%m-%d)" \
  cd - ;'
 
-alias capture_spack_config=". /Volumes/${raingod}/repos/bitbucket/spack_tools/scripts/reeper.$(basename $SHELL)"
+alias capture_spack_config_z=". /Volumes/${raingod}/repos/bitbucket/spack_tools/scripts/reeper.$(basename $SHELL)"
+alias capture_spack_config_sh=".        /${raingod}/repos/bitbucket/spack_tools/scripts/reeper.$(basename $SHELL)"

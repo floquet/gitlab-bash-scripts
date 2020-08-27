@@ -6,14 +6,14 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 #     source ${core}/info-slurm.sh
 # fi
 
-rm -rf ${id}/slurm-*.txt
-mkdir -p "${id}/slurm-queries"
+rm -rf ${configuration}/slurm-*.txt
+mkdir -p "${configuration}}/slurm-queries"
 
 # is slurm runnning?
 if command -v sinfo > /dev/null 2>&1; then
     source ${core}/slurm.sh
     # # sinfo
-    export my_log="${id}/slurm-queries/slurm-sinfo.txt"
+    export my_log="${configuration}/slurm-queries/slurm-sinfo.txt"
 
     echo "sinfo for ${host_name}" >  ${my_log}
     date                          >> ${my_log}
@@ -23,7 +23,7 @@ if command -v sinfo > /dev/null 2>&1; then
     sinfo                         >> ${my_log}
 
     # # sinfo
-    export my_log="${id}/slurm-queries/slurm-sinfo_s.txt"
+    export my_log="${configuration}/slurm-queries/slurm-sinfo_s.txt"
 
     echo "sinfo_s for ${host_name}" >  ${my_log}
     date                            >> ${my_log}
@@ -33,7 +33,7 @@ if command -v sinfo > /dev/null 2>&1; then
     sinfo_s                         >> ${my_log}
 
     # # features
-    export my_log="${id}/slurm-queries/slurm-sinfo-active-avail-features.txt"
+    export my_log="${configuration}/slurm-queries/slurm-sinfo-active-avail-features.txt"
 
     echo "active, available features for "${host_name} >  ${my_log}
     date                                               >> ${my_log}
@@ -43,7 +43,7 @@ if command -v sinfo > /dev/null 2>&1; then
     sinfo -o "%30N %75b %75f"                          >> ${my_log}
 
     # # partitions
-    export my_log="${id}/slurm-queries/slurm-partition-list.txt"
+    export my_log="${configuration}/slurm-queries/slurm-partition-list.txt"
 
     echo "partitions for "${host_name} >  ${my_log}
     date                               >> ${my_log}
@@ -53,7 +53,7 @@ if command -v sinfo > /dev/null 2>&1; then
     scontrol show partitions           >> ${my_log}
 
     # # quality of service
-    export my_log="${id}/slurm-queries/slurm-qos-options.txt"
+    export my_log="${configuration}/slurm-queries/slurm-qos-options.txt"
 
     echo "quality of service for "${host_name} >  ${my_log}
     date                                       >> ${my_log}

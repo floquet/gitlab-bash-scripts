@@ -5,16 +5,16 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 # https://stackoverflow.com/questions/592620/check-if-a-program-exists-from-a-bash-script
 # if [ -x "$(command -v hwloc-ls)" ]; then
 if command -v hwloc-ls > /dev/null 2>&1; then
-    export file_hwloc="${id}/hwloc-ls.txt"
+    export file_hwloc="${configuration}/hwloc-ls.txt"
     hwloc-ls > ${file_hwloc}
 
-    export file_hwloc="${id}/hwloc-info.txt"
+    export file_hwloc="${configuration}/hwloc-info.txt"
     hwloc-info > ${file_hwloc}
 fi
 
 if command -v lscpu > /dev/null 2>&1; then
     # # lscpu
-    export my_log="${id}/lscpu.txt"
+    export my_log="${configuration}/lscpu.txt"
 
     echo "lscpu for ${whoami}" >  ${my_log}
     date                       >> ${my_log}
@@ -24,7 +24,7 @@ fi
 
 if command -v lspci > /dev/null 2>&1; then
     # # lscpu
-    export my_log="${id}/lspci.txt"
+    export my_log="${configuration}/lspci.txt"
 
     echo "lspci for ${whoami}" >  ${my_log}
     date                       >> ${my_log}

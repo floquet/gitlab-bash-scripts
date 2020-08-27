@@ -4,7 +4,7 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 # is lstopo defined?
 if type "lstopo" > /dev/null 2>&1; then
     # save time - do not regenrate
-    export file_base="${id}/lstopo"
+    export file_base="${configuration}/lstopo"
     export file_lstopo="${file_base}.txt"
     if ! [ -e ${file_lstopo} ]
         then
@@ -13,12 +13,12 @@ if type "lstopo" > /dev/null 2>&1; then
             lstopo -p "${file_base}-p.txt"
             lstopo    "${file_base}.pdf"
     fi
-    lstopo-no-graphics        ${id}/lstopo.pdf
+    lstopo-no-graphics        ${configuration}/lstopo.pdf
     if ! [ -f ${id}/lstopo.txt ]; then
-        lstopo-no-graphics   ${id}/lstopo.txt
+        lstopo-no-graphics   ${configuration}/lstopo.txt
     fi
     if ! [ -f ${id}/lstopo-v.txt ]; then
-        lstopo-no-graphics -v ${id}/lstopo-v.txt
+        lstopo-no-graphics -v ${configuration}/lstopo-v.txt
     fi
     lstopo ${id}/lstopo.pdf > /dev/null 2>&1
     lstopo ${id}/lstopo.png > /dev/null 2>&1

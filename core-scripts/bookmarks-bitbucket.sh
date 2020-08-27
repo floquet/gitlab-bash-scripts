@@ -9,6 +9,11 @@ if [ -d "${bitbucket}/bottom" ]; then
     repos_bitbucket="${repos_bitbucket} bottom"
 fi
 
+if [ -d "${bitbucket}/c" ]; then
+    export      myc="${bitbucket}/c"
+    alias       goc="cd ${myc}; pwd"
+    repos_bitbucket="${repos_bitbucket} c"
+fi
 if [ -d "${bitbucket}/ert" ]; then
     export  ert="${bitbucket}/ert"
     alias goert="cd ${ert}; pwd"
@@ -61,10 +66,22 @@ if [ -d "${bitbucket}/mac-bash" ]; then
     repos_bitbucket="${repos_bitbucket} mac_bash"
 fi
 
+if [ -d "${bitbucket}/placemat" ]; then
+    export  placemat="${bitbucket}/placemat"
+    alias goplacemat="cd ${placemat}; pwd"
+    repos_bitbucket="${repos_bitbucket} placemat"
+fi
+
 if [ -d "${bitbucket}/python" ]; then
     export mypython="${bitbucket}/python"
     alias  gopython="cd ${mypython}; pwd"
     repos_bitbucket="${repos_bitbucket} mypython"
+fi
+
+if [ -d "${bitbucket}/spack_tools" ]; then
+    export  stools="${bitbucket}/spack_tools"
+    alias gostools="cd ${stools}; pwd"
+    repos_bitbucket="${repos_bitbucket} spack_tools"
 fi
 
 if [ -d "${bitbucket}/top" ]; then

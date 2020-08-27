@@ -14,7 +14,7 @@ export bold=$(tput bold)
 export normal=$(tput sgr0)
 
 ## ##  record environment
-export my_log="${id}/environment-variables.txt"
+export my_log="${configuration}/environment-variables.txt"
 
 echo "environment variables" >  ${my_log}
 date                         >> ${my_log}

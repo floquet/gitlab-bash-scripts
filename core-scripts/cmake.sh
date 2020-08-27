@@ -1,7 +1,7 @@
 #! /bin/bash
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
-export my_log="${id}/alias_assignments.txt"
+export my_log="${configuration}/alias_assignments.txt"
 
 alias   again="cd ../; rm -rf build; mkdir build;  cd build"
 alias   quick="rm -rf build/ && mkdir build && cd build && cmake .."

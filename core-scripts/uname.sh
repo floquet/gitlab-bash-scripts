@@ -1,7 +1,7 @@
 #! /bin/bash
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
-export my_log="${id}/uname-variables.txt"
+export my_log="${configuration}/uname-variables.txt"
 echo "uname variables"                           >  ${my_log}
 date                                             >> ${my_log}
 echo ""                                          >> ${my_log}

@@ -3,7 +3,7 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 alias another_mathematica='open -n /Volumes/Macintosh\ HD/Applications/Wolfram/Mathematica\ 11.3.0.0.app'  # launch second kernel
 
-export my_log="${id}/apple_profiler.txt"
+export my_log="${configuration}/apple_profiler.txt"
 
 echo "mac profile"                        >  ${my_log}
 date                                      >> ${my_log}

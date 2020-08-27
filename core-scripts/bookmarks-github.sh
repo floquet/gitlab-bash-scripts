@@ -63,6 +63,12 @@ if [ -d "${github}/python" ]; then
     repos_github="${repos_github} python"
 fi
 
+if [ -d "${github}/spacktivity" ]; then
+    export   spacktivity="${github}/spacktivity"
+    alias  gospacktivity="cd ${spacktivity}; pwd"
+    repos_github="${repos_github} spacktivity"
+fi
+
 if [ -d "${github}/topa-development" ]; then
     export  topa="${github}/topa-development"
     alias gotopa="cd ${topa}; pwd"

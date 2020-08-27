@@ -10,6 +10,7 @@ alias copy_scripts=". ${lap}/init/bash/control/copier.sh"
 alias run_reporter=". ${lap}/init/bash/control/spack-reporter.sh"
 alias  sf="spack find"
 alias sfl="spack find -ldf"
+alias reap=". ${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.zsh"
 
 alias scgcm="echo 'spack config get compilers'; spack config get compilers"
 alias scgcn="echo 'spack config get config'   ; spack config get config"
@@ -65,5 +66,3 @@ function foo(){
 }
 
 # alias contents_spack='echo "ALIAS  fix_module_path ref sil sml sp scgcm scgcn scgmi scgmo scgpa scgre spack_here spack_https spack_set spack_shell spack_ssh spack_try svicompilers svimodules svimirrors"; echo "EXPORT spack_mirror_draco spack_mirror_scratch"'
-
-

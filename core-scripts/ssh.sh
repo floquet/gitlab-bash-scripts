@@ -14,6 +14,7 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 # ssh-keygen -t rsa -C "dantopa@gmail.com" -b 4096
 # ssh-keygen -t ecdsa -b 521
 alias resetSSH='echo "ssh-keygen -f ~/.ssh/id_rsa -p"; ssh-keygen -f ~/.ssh/id_rsa -p'
+alias new_key='echo -e "\n\n\n" | ssh-keygen -o -a 100 -t ed25519 -N ""'
 
 # ihpc:    crypto card
 # rzgw:    <password>idodjv2k<pin>

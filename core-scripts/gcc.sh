@@ -10,6 +10,8 @@ alias show_select_gcc='echo "sudo port select --set gcc mp-gccX"; sudo port sele
 alias show_select_generic='sudo port select --set ${1} ${2}'
 alias show_gcc_versions='echo "sudo port select --set gcc mp-gccX; port select --list gcc"'
 
+alias gccv='echo "gcc --version"; gcc --version'
+
 # # F U N C T I O N S
 function selector(){
   echo "selecting gcc version "$1;

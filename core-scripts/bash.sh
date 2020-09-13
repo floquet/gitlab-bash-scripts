@@ -14,6 +14,7 @@ alias    lsb="echo 'lsb_release -a'; lsb_release -a"
 alias curl_37='grep -r "curl: (37)" .'
 alias   stale='grep  -r "[Errno 116] Stale file handle" .'
 
+alias release='echo "cat /etc/os-release"; cat /etc/os-release'
 
 
 # # path queries

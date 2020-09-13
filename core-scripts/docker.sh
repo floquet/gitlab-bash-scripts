@@ -10,6 +10,8 @@ alias   mirrorDropbox="echo 'spack mirror add local_filesystem file://${dirDropb
 alias mirrorXiuhcoatl="echo 'spack mirror add local_filesystem file://${HOME}${dirDropbox}'; spack mirror add local_filesystem file://${HOME}${dirDropbox}"
 alias mirrorQuaxolotl="echo 'spack mirror add local_filesystem file:///Chaac/cloud${dirDropbox}'; spack mirror add local_filesystem file:///Chaac/cloud${dirDropbox}"
 
+alias reap="${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash"
+
 function quaxolotl(){
     echo "docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ${1}"
           docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ${1}

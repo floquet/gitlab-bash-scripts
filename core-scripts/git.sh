@@ -42,6 +42,7 @@ function sign_gpg(){
 function dantopa(){
     git config --global user.name "Daniel Topa"
     git config --global user.email dantopa@gmail.com
+    git config --global pull.rebase false
     git config --global push.default simple
     git config --global color.ui true
     git config --global rerere.enabled true

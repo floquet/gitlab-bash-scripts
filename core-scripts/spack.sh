@@ -1,7 +1,7 @@
 #! /bin/bash
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
-alias l-spack=". ${core}/spack-init.sh"
+alias l-spack="echo 'running spack-init';. ${core}/spack-init.sh; echo 'spack architecture = $(thisArch)'"
 
 # # errands
 alias  gospack="cd ${mySpack}; pwd"

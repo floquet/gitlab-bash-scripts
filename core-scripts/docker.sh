@@ -12,6 +12,23 @@ alias mirrorQuaxolotl="echo 'spack mirror add local_filesystem file:///Chaac/clo
 
 #alias reap="${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash"
 alias reap="echo '${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test'''; ${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test''"
+export generics="${ddocker}/unified/generics/"
+
+function myDocker(){
+# myDocker ubuntu:22.04
+    echo "docker run -it -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Infernum:/Infernum -v /Volumes/Paradisum:/Paradisum -v /Volumes/Purgatorium:/Purgatorium -v /Volumes/atacama:/atacama -v /Volumes/gobi:/gobi -v /Volumes/sonoran:/sonoran -v /Volumes/repos:/repos -v /Volumes/spacktivity:/spacktivity ${1}"
+    docker run -it \
+ -v /Users/dantopa/Dropbox:/Dropbox \
+ -v /Volumes/Metztli:/Metztli \
+ -v /Volumes/Infernum:/Infernum  \
+ -v /Volumes/Paradisum:/Paradisum  \
+ -v /Volumes/Purgatorium:/Purgatorium  \
+ -v /Volumes/atacama:/atacama  \
+ -v /Volumes/gobi:/gobi  \
+ -v /Volumes/sonoran:/sonoran  \
+ -v /Volumes/repos:/repos  \
+ -v /Volumes/spacktivity:/spacktivity  ${1}
+}
 
 function quaxolotl(){
     echo "docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ${1}"

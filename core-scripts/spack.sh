@@ -1,28 +1,34 @@
 #! /bin/bash
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
-
-alias l-spack="echo 'running spack-init';. ${core}/spack-init.sh; echo 'spack architecture = $(thisArch)'"
+# Fri Nov 26 17:45:25 MST 2021
+alias l-spack="source ${core}/spack-init.zsh"
 
 # # errands
-alias  gospack="cd ${mySpack}; pwd"
-alias initspack="echo '. share/spack/setup-env.sh';. share/spack/setup-env.sh; echo 'l-spack'; l-spack"
+alias   gospack="cd ${mySpack}; pwd"
+alias initspack="echo 'source share/spack/setup-env.sh';source share/spack/setup-env.sh; echo 'l-spack'; l-spack"
 
 alias gomirror="cd ${big_spack_mirror}; pwd"
 
 alias genesis="echo 'git clone https://github.com/spack/spack'; git clone https://github.com/spack/spack"
 
-alias yaml_cat='mkdir -p "${github}/catalog-spack/${host_name}/${thisArch}/${SPACK_ROOT}"; \
- export dir_to="${github}/catalog-spack/${host_name}/${thisArch}/${SPACK_ROOT}"; \
- rsync -zarv --prune-empty-dirs --include "*/" --include="*compilers.yaml" --include="*config.yaml" --include="*mirrors.yaml" --include="*modules.yaml" --include="*packages.yaml" --include="*repos.yaml" --exclude="*" "${SPACK_ROOT}/."  "${dir_to}"; \
- rsync -zarv --prune-empty-dirs --include "*/" --include="*compilers.yaml" --include="*config.yaml" --include="*mirrors.yaml" --include="*modules.yaml" --include="*packages.yaml" --include="*repos.yaml" --exclude="*" "${HOME}/.spack/." "${dir_to}" \
- spack find      > ${dir_to}/find.txt;
- spack find -ldf > ${dir_to}/find-ldf.txt;
- spack compilers > ${dir_to}/compilers.txt;
- module avail   2> ${dir_to}/modules.txt
- cd "${github}/catalog-spack" \
- git add -A . \
- git commit -m "${host_name} $(date +%Y-%m-%d)" \
- cd - ;'
+# script runners
+alias run_reporter="source ${lap}/init/bash/control/spack-reporter.sh"
+alias                 reap=". ${bitbucket}/spack_tools/scripts/reaper.zsh"
+alias capture_spack_config=". ${bitbucket}/spack_tools/scripts/reeper.$(basename $SHELL)"
+alias    copy_yaml="source ${lap}/init/yaml/copier-yaml.sh"
+alias copy_scripts="source ${lap}/init/bash/control/copier.sh"
 
-alias capture_spack_config_z=". /Volumes/${raingod}/repos/bitbucket/spack_tools/scripts/reeper.$(basename $SHELL)"
-alias capture_spack_config_sh=".        /${raingod}/repos/bitbucket/spack_tools/scripts/reeper.$(basename $SHELL)"
+# configuration commands
+alias scgcm="echo 'spack config get compilers'; spack config get compilers"
+alias scgcn="echo 'spack config get config'   ; spack config get config"
+alias scgmi="echo 'spack config get mirrors'  ; spack config get mirrors"
+alias scgmo="echo 'spack config get modules'  ; spack config get modules"
+alias scgpa="echo 'spack config get packages' ; spack config get packages"
+alias scgre="echo 'spack config get repos'    ; spack config get repos"
+
+alias scbcm="echo 'spack config get compilers'; spack config blame compilers"
+alias scbcn="echo 'spack config get config'   ; spack config blame config"
+alias scbmi="echo 'spack config get mirrors'  ; spack config blame mirrors"
+alias scbmo="echo 'spack config get modules'  ; spack config blame modules"
+alias scbpa="echo 'spack config get packages' ; spack config blame packages"
+alias scbre="echo 'spack config get repos'    ; spack config blame repos"

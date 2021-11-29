@@ -1,7 +1,7 @@
 #! /bin/bash
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 # Fri Nov 26 17:45:25 MST 2021
-alias l-spack="source ${core}/spack-init.zsh"
+alias l-spack="source ${core}/spack-init.sh"
 
 # # errands
 alias   gospack="cd ${mySpack}; pwd"
@@ -14,7 +14,7 @@ alias genesis="echo 'git clone https://github.com/spack/spack'; git clone https:
 # script runners
 alias run_reporter="source ${lap}/init/bash/control/spack-reporter.sh"
 alias                 reap=". ${bitbucket}/spack_tools/scripts/reaper.zsh"
-alias capture_spack_config=". ${bitbucket}/spack_tools/scripts/reeper.$(basename $SHELL)"
+alias capture_spack_config=". ${bitbucket}/spack_tools/scripts/reaper.$(basename $SHELL)"
 alias    copy_yaml="source ${lap}/init/yaml/copier-yaml.sh"
 alias copy_scripts="source ${lap}/init/bash/control/copier.sh"
 

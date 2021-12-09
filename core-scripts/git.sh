@@ -7,7 +7,7 @@ alias ggit="echo 'git add -A .'; git add -A ."
 alias gstatus="echo 'git status'; git status"
 alias gpull="echo 'git pull'; git pull"
 alias gpush="echo 'git push'; git push"
-alias gclean="echo 'git clean -f -x -d; git prune'; git clean -f -x -d; git prune"
+alias gclean="echo 'git clean -d -f -x; git prune'; git clean -f -x -d; git prune"
 
 # https://stackoverflow.com/questions/783811/getting-git-to-work-with-a-proxy-server
 #alias get_git_proxies='echo "http proxy: "; git config --global --get http.proxy; echo "https proxy: "; git config --global --get https.proxy'

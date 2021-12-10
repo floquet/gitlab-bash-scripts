@@ -13,6 +13,7 @@ alias  sf="spack find"
 alias sfl="spack find -ldf"
 
 # # captures
+alias move_to_mirror="export dirSource='${SPACK_ROOT}/var/spack/cache/_source-cache/archive'; export dirSink='${big_spack_mirror}/_source-cache/archive'; echo '\${dirSource} = ${dirSource}';echo '\${dirSink} = ${dirSink}'; echo 'rsync -vauh ${dirSource} ${dirSink}'; rsync -vauh ${dirSource} ${dirSink}"
 alias feed_spack_mirror="echo 'rsync from \${SPACK_ROOT} = ${SPACK_ROOT} to \${big_spack_mirror} = ${big_spack_mirror}';rsync -vauh ${SPACK_ROOT}/var/spack/cache/_source-cache/archive ${big_spack_mirror}/_source-cache/archive"
 alias yaml_cat='mkdir -p "${github}/catalog-spack/${host_name}/${thisArch}/${SPACK_ROOT}; export dir_to="${github}/catalog-spack/${host_name}/${thisArch}/${SPACK_ROOT}"; rsync -zarv --prune-empty-dirs --include "*/" --include="*compilers.yaml" --include="*config.yaml" --include="*mirrors.yaml" --include="*modules.yaml" --include="*packages.yaml" --include="*repos.yaml" --exclude="*" "${SPACK_ROOT}/." "${dir_to}"; rsync -zarv --prune-empty-dirs --include "*/" --include="*compilers.yaml" --include="*config.yaml" --include="*mirrors.yaml" --include="*modules.yaml" --include="*packages.yaml" --include="*repos.yaml" --exclude="*" "${HOME}/.spack/." "${dir_to}"'
 

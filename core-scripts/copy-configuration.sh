@@ -16,6 +16,6 @@ wait
 export here=${PWD} # tag directory for return trip
 cd ${config_repo} # enter repo
 git add -A . # add new files
-git commit -m "${HOST} ${USER} $(date +%Y-%m-%d-%H-%M)"
+git commit -m "${moniker} ${owner} ${dist}-${release} $(date +%Y-%m-%d %H-%M)"
 echo ${PWD} # display repo location
 cd ${here} # return to inital directory

@@ -9,8 +9,9 @@ export thisArch=$(spack arch)
 # #  spack shortcuts
 alias  sp="cd ${SPACK_ROOT}; pwd"
 alias esp="echo '\${SPACK_ROOT}:'; echo '${SPACK_ROOT}'"
-alias  sf="spack find"
 alias sfl="spack find -ldf"
+alias  sf="spack find"
+alias  si="spack info"
 
 # # captures
 alias move_to_mirror="export dirSource='${SPACK_ROOT}/var/spack/cache/_source-cache/archive'; export dirSink='${big_spack_mirror}/_source-cache/archive'; echo '\${dirSource} = ${dirSource}';echo '\${dirSink} = ${dirSink}'; echo 'rsync -vauh ${dirSource} ${dirSink}'; rsync -vauh ${dirSource} ${dirSink}"

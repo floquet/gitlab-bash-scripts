@@ -20,6 +20,6 @@ alias release='echo "cat /etc/os-release"; cat /etc/os-release'
 # # path queries
 alias  ep="echo '\${PATH}:';       echo ${PATH}"
 alias emp="echo '\${MODULEPATH}:'; echo ${MODULEPATH}"
-alias esp="echo '\${SPACK_ROOT}:'; echo ${SPACK_ROOT}"
+#alias esp="echo '\${SPACK_ROOT}:'; echo ${SPACK_ROOT}"
 alias ebf="echo '\${bash_file}:';  echo ${bash_file}"
 alias epa="echo '\${partition}:';  echo ${partition}"

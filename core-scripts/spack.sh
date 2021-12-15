@@ -13,7 +13,7 @@ alias genesis="echo 'git clone https://github.com/spack/spack'; git clone https:
 
 # script runners
 alias run_reporter="source ${lap}/init/bash/control/spack-reporter.sh"
-alias                 reap=". ${bitbucket}/spack_tools/scripts/reaper.zsh"
+#alias                 reap=". ${bitbucket}/spack_tools/scripts/reaper.zsh"
 alias capture_spack_config=". ${bitbucket}/spack_tools/scripts/reaper.$(basename $SHELL)"
 alias    copy_yaml="source ${lap}/init/yaml/copier-yaml.sh"
 alias copy_scripts="source ${lap}/init/bash/control/copier.sh"

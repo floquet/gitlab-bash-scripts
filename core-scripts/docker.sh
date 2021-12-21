@@ -2,6 +2,9 @@
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 alias bye="echo 'lsb_release -a; exit'; lsb_release -a; exit"
+# https://superuser.com/questions/121627/how-to-get-elements-from-list-in-bash/121628
+alias session="echo $(uname -a) | cut -d' ' -f2"
+alias boo="list=$(uname -a); set -- list"
 alias dimage="echo 'docker images'; docker images"
 
 export dirDockerLocker="${ddocker}"

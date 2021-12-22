@@ -33,6 +33,23 @@ function myDocker(){
  -v /Volumes/spacktivity:/spacktivity  ${1}
 }
 
+function myDockerTime(){
+# myDocker ubuntu:22.04
+    echo "docker run -it -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Infernum:/Infernum -v /Volumes/Paradisum:/Paradisum -v /Volumes/Purgatorium:/Purgatorium -v /Volumes/atacama:/atacama -v /Volumes/gobi:/gobi -v /Volumes/sonoran:/sonoran -v /Volumes/repos:/repos -v /Volumes/spacktivity:/spacktivity ${1}"
+    docker run -it                     \
+ -v /etc/localtime:/etc/locatime       \
+ -v /Users/dantopa/Dropbox:/Dropbox    \
+ -v /Volumes/Metztli:/Metztli          \
+ -v /Volumes/Infernum:/Infernum        \
+ -v /Volumes/Paradisum:/Paradisum      \
+ -v /Volumes/Purgatorium:/Purgatorium  \
+ -v /Volumes/atacama:/atacama          \
+ -v /Volumes/gobi:/gobi                \
+ -v /Volumes/sonoran:/sonoran          \
+ -v /Volumes/repos:/repos              \
+ -v /Volumes/spacktivity:/spacktivity  ${1}
+}
+
 function quaxolotl(){
     echo "docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ${1}"
           docker run -it -v /Volumes/Chaac:/Chaac -v /Volumes/Opochtli:/Opochtli ${1}

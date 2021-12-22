@@ -3,16 +3,22 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 alias another_mathematica='open -n /Volumes/Macintosh\ HD/Applications/Wolfram/Mathematica\ 11.3.0.0.app'  # launch second kernel
 
-export my_log="${configuration}/apple_profiler.txt"
+function profiler_tasker(){
+    write_apple_profiler ${configuration}/${1}
+    write_apple_profiler        ${locker}/${1}
+}
+function write_apple_profiler (){
+    echo "mac profile"                        >  ${1}
+    date                                      >> ${1}
+    echo ""                                   >> ${1}
+    echo "system_profiler SPSoftwareDataType" >> ${1}
+    system_profiler SPSoftwareDataType        >> ${1}
+    echo ""                                   >> ${1}
+    echo "sysctl -a"                          >> ${1}
+    sysctl -a                                 >> ${1}
+}
 
-echo "mac profile"                        >  ${my_log}
-date                                      >> ${my_log}
-echo ""                                   >> ${my_log}
-echo "system_profiler SPSoftwareDataType" >> ${my_log}
-system_profiler SPSoftwareDataType        >> ${my_log}
-echo ""                                   >> ${my_log}
-echo "sysctl -a"                          >> ${my_log}
-sysctl -a                                 >> ${my_log}
+profiler_tasker apple_profiler.txt
 
 # WARNING: The locate database (/var/db/locate.database) does not exist.
 # To create the database, run the following command:

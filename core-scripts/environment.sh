@@ -13,16 +13,24 @@ myprompt
 export bold=$(tput bold)
 export normal=$(tput sgr0)
 
-## ##  record environment
-export my_log="${configuration}/environment-variables.txt"
+## ##  record environment variable
 
-echo "environment variables" >  ${my_log}
-date                         >> ${my_log}
-echo ""                      >> ${my_log}
-echo "shell = ${0}"          >> ${my_log}
-echo ""                      >> ${my_log}
-env                          >> ${my_log}
-echo ""                      >> ${my_log}
-echo ${BASH_SOURCE[0]}       >> ${my_log}
+function environment_tasker(){
+    write_environment_assignments ${configuration}/${1}
+    write_environment_assignments        ${locker}/${1}
+}
+function write_environment_assignments (){
+    echo "environment variables"                   >  ${1}
+    date                                           >> ${1}
+    echo ""                                        >> ${1}
+    echo "shell = ${0}"                            >> ${1}
+    echo ""                                        >> ${1}
+    echo "\${BASH_SOURCE[0]} = ${BASH_SOURCE[0]} " >> ${1}
+    echo ""                                        >> ${1}
+    echo "env"                                     >> ${1}
+    env                                            >> ${1}
+}
+
+environment_tasker environment-variables.txt
 
 alias contents_environment='echo "write list of environment commands to environment_variables.txt"'

@@ -38,5 +38,5 @@ export spot=$(pwd)
 export ymd=$(date +%Y-%m-%d-%H-%M) # timestamp results
 cd ${bitbucket}/initialization-scripts
 git add -A .
-git commit -m "${host_name} initialization ${ymd}"
+git commit -m "${moniker} ${dist}-${release} /initialization ${ymd}"
 cd ${spot}

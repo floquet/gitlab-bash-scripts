@@ -14,6 +14,9 @@ export    u_Infernum="/Volumes/Infernum/"
 export   u_Paradisum="/Volumes/Paradisum/"
 export u_Purgatorium="/Volumes/Purgatorium/"
 
+export u_t7="/Volumes/T7-Touch/"
+alias  got7="cd ${u_t7}; pwd"
+
 alias    goTlaltecuhtli="cd ${u_Tlaltecuhtli};    pwd"
 alias goHuitzilopochtli="cd ${u_Huitzilopochtli}; pwd"
 

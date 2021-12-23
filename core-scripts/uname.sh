@@ -1,10 +1,8 @@
 #! /bin/bash
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
-export my_log="${configuration}/uname-variables.txt"
-echo "uname variables"                           >  ${my_log}
-date                                             >> ${my_log}
-echo ""                                          >> ${my_log}
+export my_log="${locker}/uname-variables.txt"
+write_standard_header "uname variables"            "${my_log}"
 echo "-m   machine name:          $(uname -m)"   >> ${my_log}
 echo "-n   network node hostname: $(uname -n)"   >> ${my_log}
 echo "-i   hardware platform:     $(uname -i)"   >> ${my_log}

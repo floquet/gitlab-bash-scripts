@@ -20,17 +20,11 @@ function environment_tasker(){
     write_environment_assignments        ${locker}/${1}
 }
 function write_environment_assignments (){
-    echo "environment variables"                   >  ${1}
-    date                                           >> ${1}
-    echo ""                                        >> ${1}
-    echo "shell = ${0}"                            >> ${1}
-    echo ""                                        >> ${1}
-    echo "\${BASH_SOURCE[0]} = ${BASH_SOURCE[0]} " >> ${1}
-    echo ""                                        >> ${1}
-    echo "env"                                     >> ${1}
-    env                                            >> ${1}
+    write_standard_header "environment variables"    ${1}
+    echo "env:"                                   >> ${1}
+    env                                           >> ${1}
 }
 
-environment_tasker environment-variables.txt
+environment_tasker "environment-variables.txt"
 
 alias contents_environment='echo "write list of environment commands to environment_variables.txt"'

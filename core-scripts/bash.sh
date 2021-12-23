@@ -16,10 +16,20 @@ alias   stale='grep  -r "[Errno 116] Stale file handle" .'
 
 alias release='echo "cat /etc/os-release"; cat /etc/os-release'
 
-
 # # path queries
 alias  ep="echo '\${PATH}:';       echo ${PATH}"
 alias emp="echo '\${MODULEPATH}:'; echo ${MODULEPATH}"
 #alias esp="echo '\${SPACK_ROOT}:'; echo ${SPACK_ROOT}"
 alias ebf="echo '\${bash_file}:';  echo ${bash_file}"
 alias epa="echo '\${partition}:';  echo ${partition}"
+
+# write_standard_header "descriptive tag" "file name"
+function write_standard_header (){
+    echo "${1} on ${moniker}"                      >  ${2}
+    date                                           >> ${2}
+    echo ""                                        >> ${2}
+    echo "shell = ${0}"                            >> ${2}
+    echo ""                                        >> ${2}
+    echo "\${BASH_SOURCE[0]} = ${BASH_SOURCE[0]} " >> ${2}
+    echo ""                                        >> ${2}
+}

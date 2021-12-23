@@ -10,13 +10,32 @@ function proc_probes(){
     # ${1}: "buddyinfo"
     # ${2}: "used primarily for diagnosing memory fragmentation issues"
     safe=$(echo "${1}" | tr / -)
-    export my_log="${dirProc}/proc-${safe}.txt"
+    #export my_log="${dirProc}/proc-${safe}.txt"
+    echo "calling proc_probes_tasker"
+    echo "\${1} = ${1}; \${2} = ${2}; \${3} = ${3};"
+
+    proc_probes_tasker "${1}" "${2}" "proc-${safe}.txt"
     #
-    echo "cat /proc/${1} for ${whoami}" >  ${my_log}
-    echo "${2}"                         >> ${my_log}
-    date                                >> ${my_log}
-    echo ""                             >> ${my_log}
-    cat "/proc/${1}"                    >> ${my_log} 2>&1
+    # echo "cat /proc/${1} for ${whoami}" >  ${my_log}
+    # echo "${2}"                         >> ${my_log}
+    # date                                >> ${my_log}
+    # echo ""                             >> ${my_log}
+    # cat "/proc/${1}"                    >> ${my_log} 2>&1
+}
+
+function proc_probes_tasker(){
+    echo "inside proc_probes_tasker"
+    echo "\${1} = ${1}; \${2} = ${2}; \${3} = ${3}"
+    write_proc_probes "${1}" "${2}" "${dirProc}/${3}"
+    write_proc_probes "${1}" "${2}" "${locker}/proc/${3}"
+}
+function write_proc_probes (){
+    write_standard_header "proc-${safe}"    ${3}
+    echo "cat /proc/${1} for ${moniker}" >  ${3}
+    echo "${2}"                          >> ${3}
+    echo ""                              >> ${3}
+    echo "/proc/${1}:"                   >> ${3}
+    cat  "/proc/${1}"                    >> ${3} 2>&1
 }
 
 alias cpu_out="grep -i 'model name' /proc/cpuinfo | sort | uniq"

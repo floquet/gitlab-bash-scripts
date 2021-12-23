@@ -8,13 +8,11 @@ function profiler_tasker(){
     write_apple_profiler        ${locker}/${1}
 }
 function write_apple_profiler (){
-    echo "mac profile"                        >  ${1}
-    date                                      >> ${1}
-    echo ""                                   >> ${1}
+    write_standard_header "mac profile"          ${1}
     echo "system_profiler SPSoftwareDataType" >> ${1}
     system_profiler SPSoftwareDataType        >> ${1}
     echo ""                                   >> ${1}
-    echo "sysctl -a"                          >> ${1}
+    echo "sysctl -a:"                         >> ${1}
     sysctl -a                                 >> ${1}
 }
 

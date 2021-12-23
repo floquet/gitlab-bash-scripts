@@ -6,12 +6,11 @@ function alias_tasker(){
     write_alias_assignments        ${locker}/${1}
 }
 function write_alias_assignments (){
-    echo "alias assignments on ${moniker}" >  ${1}
-    date                                   >> ${1}
-    echo ""                                >> ${1}
-    alias                                  >> ${1}
+    write_standard_header "alias assignments"    ${1}
+    echo "alias:"                             >> ${1}
+    alias                                     >> ${1}
 }
 
-alias_tasker alias-assignments.txt
+alias_tasker "alias-assignments.txt"
 
 alias contents_alias='echo "write list of alias commands to \${my_log} = ${my_log}"'

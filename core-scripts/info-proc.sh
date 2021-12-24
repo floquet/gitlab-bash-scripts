@@ -74,12 +74,10 @@ proc_probes "slabinfo"    "full information about memory usage on the slab level
 proc_probes "version"     "version of the Linux kernel, gcc version used to compile the kernel, time of kernel compilation, kernel compiler's user name "  &
 
 # # special cases
-export TargetFile="${dirProc}/proc-panic-oom.txt"
-cp "${core}/info-panic-oom.txt"         ${TargetFile}
-echo ""                              >> ${TargetFile}
-date                                 >> ${TargetFile}
-echo "cat /proc/sys/vm/panic_on_oom" >> ${TargetFile}
-      cat /proc/sys/vm/panic_on_oom  >> ${TargetFile} 2>&1
+export my_log="${dirProc}/proc-panic-oom.txt"
+write_standard_header "${core}/info-panic-oom.txt"    ${my_log}
+echo "cat /proc/sys/vm/panic_on_oom"               >> ${my_log}
+      cat /proc/sys/vm/panic_on_oom                >> ${my_log} 2>&1
 
 # export dirHere=$(pwd)
 # cd /proc/bus

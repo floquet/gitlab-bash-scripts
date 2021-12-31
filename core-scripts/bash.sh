@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # #   E X P O R T
@@ -22,6 +22,7 @@ alias emp="echo '\${MODULEPATH}:'; echo ${MODULEPATH}"
 #alias esp="echo '\${SPACK_ROOT}:'; echo ${SPACK_ROOT}"
 alias ebf="echo '\${bash_file}:';  echo ${bash_file}"
 alias epa="echo '\${partition}:';  echo ${partition}"
+alias nice_path='printf "%s\n" $path'
 
 # write_standard_header "descriptive tag" "file name"
 function write_standard_header (){

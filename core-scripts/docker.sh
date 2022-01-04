@@ -64,3 +64,9 @@ function xiuhcoatl(){
     echo "docker run -it -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Ometecuhtli:/Ometecuhtli -v /Volumes/Tlaloc:/Tlaloc ${1}"
           docker run -it -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Ometecuhtli:/Ometecuhtli -v /Volumes/Tlaloc:/Tlaloc ${1}
 }
+
+# docker_logger
+    if [[ ${owner} == "docker" ]]; then
+        echo "" >> ${file_docker_log}
+        echo "$(date +%Y-%m-%d\ %H:%M): ${dist}-${release}, ${machine}-(${moniker})"  >> ${file_docker_log}
+    fi

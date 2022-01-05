@@ -1,7 +1,7 @@
 #! /bin/bash
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
-alias bye="echo 'lsb_release -a; exit'; lsb_release -a; exit"
+alias bye="echo 'uname -n ; lsb_release -a; exit'; uname -n; lsb_release -a; exit"
 # https://superuser.com/questions/121627/how-to-get-elements-from-list-in-bash/121628
 alias session="echo $(uname -a) | cut -d' ' -f2"
 alias boo="list=$(uname -a); set -- list"
@@ -14,8 +14,8 @@ alias mirrorXiuhcoatl="echo 'spack mirror add local_filesystem file://${HOME}${d
 alias mirrorQuaxolotl="echo 'spack mirror add local_filesystem file:///Chaac/cloud${dirDropbox}'; spack mirror add local_filesystem file:///Chaac/cloud${dirDropbox}"
 
 #alias reap="${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash"
-alias reap="echo '${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test'''; ${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test''"
-export generics="${ddocker}/unified/generics/"
+#alias reap="echo '${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test'''; ${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test''"
+#export generics="${ddocker}/unified/generics/"
 
 function myDocker(){
 # myDocker ubuntu:22.04
@@ -68,5 +68,5 @@ function xiuhcoatl(){
 # docker_logger
     if [[ ${owner} == "docker" ]]; then
         echo "" >> ${file_docker_log}
-        echo "$(date +%Y-%m-%d\ %H:%M): ${dist}-${release}, ${machine}-(${moniker})"  >> ${file_docker_log}
+        echo "$(date +%Y-%m-%d\ %H:%M): ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
     fi

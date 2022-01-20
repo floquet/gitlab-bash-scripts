@@ -9,6 +9,8 @@ mkdir -p ${dir_inits}
 
 # # C O P Y
 rsync -am ${HOME}/*.sh      ${dir_inits}       &
+rsync -am ${HOME}/*.txt     ${dir_inits}       &
+rsync -am ${HOME}/.*.sh     ${dir_inits}       &
 rsync -am ${HOME}/.git*     ${dir_inits}       &
 rsync -am ${HOME}/.vim*     ${dir_inits}       &
 rsync -am ${HOME}/.info/.   ${dir_inits}/.info &
@@ -16,7 +18,7 @@ rsync -am ${HOME}/.info/.   ${dir_inits}/.info &
 wait
 
 export here=${PWD} # tag directory for return trip
-cd ${config_repo} # enter
+cd ${myBitbucket}/mac-configurations # enter
 echo "git add -A . (${config_repo})"
       git add -A . # add new files
 echo "git commit -m '${moniker} ${owner} ${dist}-${release} $(date +%Y-%m-%d\ %H:%M)'"

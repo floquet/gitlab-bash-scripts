@@ -5,6 +5,8 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 #source "${core}/info.sh"
 
 # # S C R I P T S
+source "${core}/paths.sh"
+
 source "${core}/gcc.sh"
 source "${core}/git.sh"
 source "${core}/ssh.sh"
@@ -12,7 +14,6 @@ source "${core}/vim.sh"
 source "${core}/make.sh"
 source "${core}/bash.sh"
 source "${core}/finds.sh"
-source "${core}/paths.sh"
 source "${core}/cmake.sh"
 source "${core}/docker.sh"
 source "${core}/copy-configuration.sh"  &

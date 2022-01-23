@@ -26,7 +26,7 @@ source "${core}/bookmarks.sh"
 source "${core}/disk.sh"
 source "${core}/uname.sh"               &
 source "${core}/spack.sh"
-# source "${core}/lstopo.sh"              &
+source "${core}/lstopo.sh"              &
 source "${core}/alias.sh"
 source "${core}/prompt.sh"
 source "${core}/modules.sh"

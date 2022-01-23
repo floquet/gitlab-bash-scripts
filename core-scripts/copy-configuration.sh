@@ -3,16 +3,16 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # ${config_repo}: /Volumes/repos/bitbucket/mac-configurations
 # ${dir_config}: Macmini8,1-(xiuhcoatl)/darwin 21.2.0/Monterey-12.1
-export dir_inits=${config_repo}/${dir_config}
-mkdir -p ${dir_inits}
+export dir_inits=${config_repo}
+mkdir -p ${config_repo}/.info
 
 # # C O P Y
-rsync -am ${HOME}/*.sh      ${dir_inits}       &
-rsync -am ${HOME}/*.txt     ${dir_inits}       &
-rsync -am ${HOME}/.*.sh     ${dir_inits}       &
-rsync -am ${HOME}/.git*     ${dir_inits}       &
-rsync -am ${HOME}/.vim*     ${dir_inits}       &
-rsync -am ${HOME}/.info/.   ${dir_inits}/.info &
+rsync -am ${HOME}/*.sh      ${config_repo}       &
+rsync -am ${HOME}/*.txt     ${config_repo}       &
+rsync -am ${HOME}/.*.sh     ${config_repo}       &
+rsync -am ${HOME}/.git*     ${config_repo}       &
+rsync -am ${HOME}/.vim*     ${config_repo}       &
+rsync -am ${HOME}/.info/.   ${config_repo}/.info &
 
 wait
 

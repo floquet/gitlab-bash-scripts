@@ -13,12 +13,13 @@ export dir_config="${machine}-(${moniker})/${os}/${dist}-${release}"
 
 # #  L O C A L  M A C H I N E
 export    locker="${HOME}/.info"
-export    extras=".platform-specific.zsh"
+export    extras=".platform-specific.sh"
 export bash_file=".${moniker}.zsh"
 
 mkdir -p ${locker}
 
 # #  B I T B U C K E T
+export     bitbucket="${repos}/bitbucket"
 export   config_repo="${bitbucket}/mac-configurations/${dir_config}/$(uname -n)"
 export configuration=${config_repo}
 export        stools="${bitbucket}/spack-tools"

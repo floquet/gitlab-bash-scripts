@@ -1,4 +1,4 @@
-#! /bin/bash -1
+#! /bin/bash -l
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 export repos_bitbucket=""

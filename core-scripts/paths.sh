@@ -18,6 +18,7 @@ export    extras=".platform-specific.zsh"
 mkdir -p ${locker}
 
 # #  B I T B U C K E T
+export     bitbucket="${repos}/bitbucket"
 export   config_repo="${bitbucket}/mac-configurations/${dir_config}/$(uname -n)"
 export configuration=${config_repo}
 export        stools="${bitbucket}/spack-tools"

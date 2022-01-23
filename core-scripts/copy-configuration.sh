@@ -7,14 +7,15 @@ export dir_inits=${config_repo}
 mkdir -p ${config_repo}/.info
 
 # # C O P Y
-rsync -am ${HOME}/*.sh      ${config_repo}       &
-rsync -am ${HOME}/*.txt     ${config_repo}       &
-rsync -am ${HOME}/.*.sh     ${config_repo}       &
-rsync -am ${HOME}/.git*     ${config_repo}       &
-rsync -am ${HOME}/.vim*     ${config_repo}       &
-rsync -am ${HOME}/.info/.   ${config_repo}/.info &
+rsync -am ${HOME}/*.sh      ${config_repo}  2>/dev/null &
+rsync -am ${HOME}/*.txt     ${config_repo}  2>/dev/null &
+rsync -am ${HOME}/.*.sh     ${config_repo}              &
+rsync -am ${HOME}/.git*     ${config_repo}              &
+rsync -am ${HOME}/.vim*     ${config_repo}              &
+rsync -am ${HOME}/.info/.   ${config_repo}/.info        &
 
 wait
+echo "threads completed for copy-configuration.sh ..."
 
 export here=${PWD} # tag directory for return trip
 cd ${bitbucket}/mac-configurations # enter

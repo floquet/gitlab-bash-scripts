@@ -33,3 +33,5 @@ source "${core}/modules.sh"
 source "${core}/environment.sh"
 
 wait
+
+echo "\${SHELL} = ${SHELL}"

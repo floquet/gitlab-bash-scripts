@@ -14,6 +14,7 @@ export dir_config="${machine}-(${moniker})/${os}/${dist}-${release}"
 # #  L O C A L  M A C H I N E
 export    locker="${HOME}/.info"
 export    extras=".platform-specific.sh"
+export   scratch="${HOME}/scratch"
 
 mkdir -p ${locker}
 

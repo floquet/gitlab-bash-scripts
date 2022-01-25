@@ -15,6 +15,7 @@ source "${core}/make.sh"
 source "${core}/bash.sh"
 source "${core}/finds.sh"
 source "${core}/cmake.sh"
+source "${core}/python.sh"
 source "${core}/docker.sh"
 source "${core}/copy-configuration.sh"  &
 

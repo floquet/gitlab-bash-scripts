@@ -16,7 +16,7 @@ function write_apple_profiler (){
     sysctl -a                                 >> ${1}
 }
 
-profiler_tasker apple_profiler.txt
+profiler_tasker apple-profiler.txt
 
 # WARNING: The locate database (/var/db/locate.database) does not exist.
 # To create the database, run the following command:

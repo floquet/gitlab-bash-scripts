@@ -15,7 +15,7 @@ alias curl_37='grep -r "curl: (37)" .'
 alias   stale='grep  -r "[Errno 116] Stale file handle" .'
 
 alias release='echo "cat /etc/os-release"; cat /etc/os-release'
-alias nice_path='printf "%s\n" $path'
+#alias nice_path='printf "%s\n" $path'
 
 # # path queries
 alias  ep="echo '\${PATH}:';       echo ${PATH}"
@@ -23,7 +23,8 @@ alias emp="echo '\${MODULEPATH}:'; echo ${MODULEPATH}"
 # alias esp="echo '\${SPACK_ROOT}:'; echo ${SPACK_ROOT}"
 alias ebf="echo '\${bash_file}:';  echo ${bash_file}"
 # alias epa="echo '\${partition}:';  echo ${partition}"
-alias nice_path='printf "%s\n" $path'
+# alias nice_path='printf "%s\n" $path'
+alias nice_path='echo $PATH | tr : "\n"'
 
 # write_standard_header "descriptive tag" "file name"
 function write_standard_header (){

@@ -13,7 +13,7 @@ if type "lstopo" > /dev/null 2>&1; then
             lstopo -p "${file_base}-p.txt"
             lstopo    "${file_base}.pdf"
     fi
-    lstopo-no-graphics        ${locker}/lstopo.pdf
+    lstopo-no-graphics        ${locker}/lstopo-no-graphics.txt
     if ! [ -f ${locker}/lstopo.txt ]; then
         lstopo-no-graphics   ${locker}/lstopo.txt
     fi

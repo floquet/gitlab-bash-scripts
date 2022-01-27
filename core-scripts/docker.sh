@@ -76,8 +76,9 @@ function ehecoatlDockerTime(){
  -v /etc/localtime:/etc/localtime         \
  -v ${HOME}/Dropbox:/Dropbox              \
  -v /Users/${USER}:/${USER}               \
- -v ${volume_ext}/repos:/Tlaloc-repos     \
- -v ${volume_ext}/spacktivity:/spactivity  ${1}
+ -v /Users/${USER}/repos:/repos           \
+ -v ${volume_ext}/repos:/vrepos           \
+ -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
 # docker_logger

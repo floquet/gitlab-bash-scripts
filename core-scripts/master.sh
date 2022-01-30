@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /usr/bin/env bash
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # run first - slowest script
@@ -35,4 +35,5 @@ source "${core}/environment.sh"
 
 wait
 
+echo "user account = $(whoami)"
 echo "\${SHELL} = ${SHELL}"

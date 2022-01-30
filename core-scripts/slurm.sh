@@ -1,5 +1,5 @@
-#! /bin/bash
-printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
+#! /usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # #   allocations
 alias   grab10="salloc -t 00:10:00 -N 2  --qos=interactive"

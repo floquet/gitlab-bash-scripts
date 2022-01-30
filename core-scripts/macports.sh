@@ -1,5 +1,5 @@
-#!/bin/sh
-printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
+#! /usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 alias mp_gcc11='echo "sudo port select --set gcc mp-gcc11"; sudo port select --set gcc mp-gcc11'
 alias mp_gcc10='echo "sudo port select --set gcc mp-gcc10"; sudo port select --set gcc mp-gcc10'

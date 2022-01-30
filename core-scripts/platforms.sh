@@ -1,5 +1,5 @@
-#! /bin/bash
-printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
+#! /usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # export partition=`env | grep SLURM_JOB_PARTITION | awk -F'=' '{print $2}'`
 # if [ -z ${partition} ]

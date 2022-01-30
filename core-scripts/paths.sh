@@ -1,5 +1,5 @@
-#!/bin/sh
-printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
+#! /usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # Sat Jan 22 15:17:25 MST 2022
 

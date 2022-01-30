@@ -1,5 +1,5 @@
-#! /bin/bash
-printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
+#! /usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # http://stackoverflow.com/questions/1125968/how-to-force-git-pull-to-overwrite-local-files
 alias overwrite="echo 'git reset --hard HEAD'; git reset --hard HEAD"

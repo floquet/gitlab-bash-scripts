@@ -1,5 +1,5 @@
-#!/bin/bash
-printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
+#! /usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # https://www.howtoforge.com/tutorial/linux-xargs-command/
 # find -name "*.txt" | xargs grep "abc"

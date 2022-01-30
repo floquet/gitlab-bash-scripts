@@ -1,5 +1,5 @@
-#!/bin/bash
-printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
+#! /usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # https://stackoverflow.com/questions/8855896/specify-directory-where-gfortran-should-look-for-modules
 # https://stackoverflow.com/questions/38274242/specifying-directories-during-fortran-compilation

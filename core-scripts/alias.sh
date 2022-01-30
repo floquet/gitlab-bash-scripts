@@ -1,8 +1,8 @@
-#! /bin/bash
-printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
+#! /usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 function alias_tasker(){
-    write_alias_assignments ${configuration}/${1}
+    #write_alias_assignments ${configuration}/${1}
     write_alias_assignments        ${locker}/${1}
 }
 function write_alias_assignments (){

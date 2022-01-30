@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /usr/bin/env bash
 printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 ##  ##  set environment
@@ -16,7 +16,7 @@ export normal=$(tput sgr0)
 ## ##  record environment variable
 
 function environment_tasker(){
-    write_environment_assignments ${configuration}/${1}
+    #write_environment_assignments ${configuration}/${1}
     write_environment_assignments        ${locker}/${1}
 }
 function write_environment_assignments (){

@@ -18,6 +18,8 @@ export   scratch="${HOME}/scratch"
 
 mkdir -p ${locker}
 
+export arXive_PATH="${PATH}"
+
 # #  B I T B U C K E T
 export     bitbucket="${repos}/bitbucket"
 export   config_repo="${bitbucket}/mac-configurations/${dir_config}/$(uname -n)"

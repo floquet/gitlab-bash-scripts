@@ -31,9 +31,12 @@ source "${core}/lstopo.sh"              &
 source "${core}/alias.sh"
 source "${core}/prompt.sh"
 source "${core}/modules.sh"
+source "${core}/macports.sh"
 source "${core}/environment.sh"
 
 wait
 
 echo "user account = $(whoami)"
 echo "\${SHELL} = ${SHELL}"
+echo "gcc --version:"
+gcc --version

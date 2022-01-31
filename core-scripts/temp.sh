@@ -1,5 +1,4 @@
 #!/bin/bash -l
-
 printf '%s\n' "$(date) ${BASH_SOURCE[0]}" # who I am
 
 export list_files="alias.sh bookmarks-github.sh"
@@ -12,4 +11,3 @@ for f in ${list_files}; do
     echo "scp ${f} $USER@tfta.lanl.gov:/lustre/cpscratch1/dantopa"
           scp ${f} $USER@tfta.lanl.gov:/lustre/cpscratch1/dantopa
 done
-

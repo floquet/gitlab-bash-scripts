@@ -5,5 +5,5 @@ export dirPyVirtualEnv="${HOME}/scratch/python-virtual-environments"
 mkdir -p ${dirPyVirtualEnv}
 
 export dirPyTruth="${dirPyVirtualEnv}/truth"
-
-
+alias goVirtual="echo 'python -m venv ${dirPyTruth}' ; python -m venv ${dirPyTruth}"
+alias vactivate="echo 'source ${dirPyTruth}/bin/activate' ; source ${dirPyTruth}/bin/activate"

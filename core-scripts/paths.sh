@@ -52,6 +52,7 @@ alias  goScriptsSpack="echo 'cd ${repo_scripts_spack}';  cd ${repo_scripts_spack
 export        gitlab="${repos}/gitlab"
 export         truth="${gitlab}/truth-magnetosphere"
 export scripts_truth="${truth}/scripts"
+export         spear="${gitlab}/SpEAR1"
 
 # #  S P A C K
 alias    goSPack="echo 'cd ${local_spack}'; cd ${local_spack}; pwd"

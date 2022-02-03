@@ -16,7 +16,7 @@ alias  si="echo 'spack info'; spack info"
 
 # # captures
 alias move_to_mirror="export dirSource='${SPACK_ROOT}/var/spack/cache/_source-cache/archive'; export dirSink='${big_spack_mirror}/_source-cache/archive'; echo '\${dirSource} = ${dirSource}';echo '\${dirSink} = ${dirSink}'; echo 'rsync -vauh ${dirSource} ${dirSink}'; rsync -vauh ${dirSource} ${dirSink}"
-alias feed_spack_mirror="echo 'rsync from \${SPACK_ROOT} = ${SPACK_ROOT}'; echo 'rsyn to   \${big_spack_mirror} = ${big_spack_mirror}'; rsync -vauh ${SPACK_ROOT}/var/spack/cache/_source-cache/archive/. ${big_spack_mirror}/_source-cache/archive/."
+alias feed_spack_mirror="echo 'rsync from \${SPACK_ROOT} = ${SPACK_ROOT}'; echo 'rsync to   \${big_spack_mirror} = ${big_spack_mirror}'; rsync -vauh ${SPACK_ROOT}/var/spack/cache/_source-cache/archive/. ${big_spack_mirror}/_source-cache/archive/."
 export dirReapers="${vrepos}/bitbucket/spack-tools/scripts/reapers"
 alias reapzsh="echo 'source ${dirReapers}/modern-reaper.zsh'; source ${dirReapers}/modern-reaper.zsh"
 alias reapbsh="echo 'source ${dirReapers}/modern-reaper.sh';  source ${dirReapers}/modern-reaper.sh"

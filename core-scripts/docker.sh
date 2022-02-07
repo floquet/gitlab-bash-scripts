@@ -81,6 +81,15 @@ function ehecoatlDockerTime(){
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
+function ehecoatlDocker(){
+# volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
+    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v /Users/${USER}:/${USER} -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
+    docker run -it \
+ -v ${HOME}/Dropbox:/Dropbox    \
+ -v /Users/${USER}:/${USER}     \
+ -v ${volume_ext}/repos:/vrepos \
+ -v ${volume_ext}/spacktivity:/spacktivity  ${1}
+}
 # docker_logger
 if [[ ${owner} == "docker" ]]; then
     # echo "" >> ${file_docker_log}

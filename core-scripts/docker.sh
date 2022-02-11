@@ -8,6 +8,7 @@ alias boo="list=$(uname -a); set -- list"
 alias dimage="echo 'docker images'; docker images"
 
 export centos_version="7.9.2009"
+export ubuntu_version="22.04"
 export dirDockerLocker="${ddocker}"
 export dirDropbox="${repo}/spacktivity/mirror"
 export file_docker_log="${repo_results_docker}/vm-log-book.txt"
@@ -83,10 +84,10 @@ function ehecoatlDockerTime(){
 
 function ehecoatlDocker(){
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
-    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v /Users/${USER}:/${USER} -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
+    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
  -v ${HOME}/Dropbox:/Dropbox    \
- -v /Users/${USER}:/${USER}     \
+ -v ${HOME}/repos:/repos        \
  -v ${volume_ext}/repos:/vrepos \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }

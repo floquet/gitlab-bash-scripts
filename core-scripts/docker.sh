@@ -82,6 +82,19 @@ function ehecoatlDockerTime(){
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
+function ehecoatlDockerTimeGitlab(){
+# volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
+    echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
+    docker run -it \
+ -v /etc/localtime:/etc/localtime                               \
+ -v ${HOME}/Dropbox:/Dropbox                                    \
+ -v /Users/${USER}:/${USER}                                     \
+ -v /Users/${USER}/repos:/repos                                 \
+ -v /Users/${USER}/repos/gitlab/SpWx:/home/dantopa/scratch/SpWx \
+ -v ${volume_ext}/repos:/vrepos                                 \
+ -v ${volume_ext}/spacktivity:/spacktivity  ${1}
+}
+
 function ehecoatlDocker(){
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
     echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/spacktivity:/spacktivity ${1}"

@@ -22,6 +22,7 @@ export Wflags="-Wall -Warray-temporaries -Wextra -Waliasing -Wsurprising -Wimpli
 
 export fflags="-fno-realloc-lhs -ffpe-trap=denormal,invalid,zero -fbacktrace -fmax-errors=5 -fcheck=all -fcheck=do -fcheck=pointer -fno-protect-parens -faggressive-function-elimination -fdiagnostics-color=auto -finit-derived"
 
+export allflags="${Wflags} ${fflags}"
 
 # export cflags="${gflags} -fcoarray=lib"
 # export crayflags="-g -fbacktrace"

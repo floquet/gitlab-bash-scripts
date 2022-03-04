@@ -13,6 +13,7 @@ alias esp="echo '\${SPACK_ROOT}:'; echo '${SPACK_ROOT}'"
 alias sfl="echo 'spack find -ldf'; spack find -ldf"
 alias  sf="echo 'spack find'; spack find"
 alias  si="echo 'spack info'; spack info"
+alias  sl="echo 'spack list ${1}'; spack list"
 
 # # captures
 alias move_to_mirror="export dirSource='${SPACK_ROOT}/var/spack/cache/_source-cache/archive'; export dirSink='${big_spack_mirror}/_source-cache/archive'; echo '\${dirSource} = ${dirSource}';echo '\${dirSink} = ${dirSink}'; echo 'rsync -vauh ${dirSource} ${dirSink}'; rsync -vauh ${dirSource} ${dirSink}"

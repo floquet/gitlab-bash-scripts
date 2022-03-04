@@ -39,6 +39,7 @@ export  repo_results_spack="${repo_build}/results-spack"
 export repo_scripts_docker="${repo_build}/scripts-docker"
 export  repo_scripts_spack="${repo_build}/scripts-spack"
 
+export  spwx="${github}/space-weather"
 export dcker="${github}/docker/unified"
 export astra="${github}/astra-spack-mirror"
 

@@ -9,7 +9,7 @@ alias initspack="echo 'source share/spack/setup-env.sh';source share/spack/setup
 
 alias gomirror="cd ${big_spack_mirror}; pwd"
 
-alias genesis="echo 'git clone https://github.com/spack/spack'; git clone https://github.com/spack/spack"
+alias genesis="echo 'git clone -c feature.manyFiles=true https://github.com/spack/spack.git' ; git clone -c feature.manyFiles=true https://github.com/spack/spack.git"
 
 # script runners
 alias run_reporter="source ${lap}/init/bash/control/spack-reporter.sh"

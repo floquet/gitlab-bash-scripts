@@ -123,3 +123,5 @@ if [[ ${owner} == "docker" ]]; then
     echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
 fi
 }
+
+docker_logger

@@ -22,6 +22,10 @@ alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big
 # docker save centos:7.9.2009 > centos.tar 
 # docker load centos.tar
 
+# $ docker commit 256ef1128538 dantopa/centos-7.9:alpha
+# $ docker push  dantopa/centos-7.9:alpha
+
+
 #alias reap="${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash"
 #alias reap="echo '${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test'''; ${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test''"
 #export generics="${ddocker}/unified/generics/"

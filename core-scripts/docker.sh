@@ -31,6 +31,23 @@ alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big
 #alias reap="echo '${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test'''; ${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test''"
 #export generics="${ddocker}/unified/generics/"
 
+# dtopa@swe45.local:SpWx $ docker container ls
+# CONTAINER ID   IMAGE          COMMAND   CREATED       STATUS       PORTS     NAMES
+# 229033ca032d   ubuntu:22.04   "bash"    2 hours ago   Up 2 hours             stoic_wozniak
+# dtopa@swe45.local:SpWx $ docker container ls
+# CONTAINER ID   IMAGE               COMMAND       CREATED          STATUS         PORTS     NAMES
+# 313e56f546b6   spwx-02-amzn:2022   "/bin/bash"   11 seconds ago   Up 8 seconds             inspiring_bardeen
+# 229033ca032d   ubuntu:22.04        "bash"        2 hours ago      Up 2 hours               stoic_wozniak
+# dtopa@swe45.local:SpWx $ docker commit 313e56f546b6 dantopa/spwx-02-amzn:2022
+# sha256:3b0bd641729f382d5a66777b20ca5186fcdd4cd1f5451b352018ccf36dbe4b6e
+# dtopa@swe45.local:SpWx $  docker push dantopa/spwx-02-amzn:2022
+# The push refers to repository [docker.io/dantopa/spwx-02-amzn]
+# 30b6acf122c1: Pushing [=>                                                 ]  23.73MB/1.069GB
+# 26fa52930e9c: Pushing [==>                                                ]  12.21MB/270MB
+# 81faef12b1ed: Pushing [>                                                  ]  15.37MB/3.464GB
+# af1ced3b8ec9: Pushing [==>                                                ]  10.89MB/181.8MB
+
+
 function xiuhcoatlDocker(){
     echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
 # myDocker ubuntu:22.04

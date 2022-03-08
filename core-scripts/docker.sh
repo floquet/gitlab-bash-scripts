@@ -2,6 +2,7 @@
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 alias bye="echo 'uname -n ; lsb_release -a; exit'; uname -n; lsb_release -a; exit"
+alias goodbye="echo 'uname -n ; lsb_release -a; exit'; uname -n; lsb_release -a; exit; echo 'docker commit $(uname -n) ${myVM}'"
 # https://superuser.com/questions/121627/how-to-get-elements-from-list-in-bash/121628
 alias session="echo $(uname -a) | cut -d' ' -f2"
 alias boo="list=$(uname -a); set -- list"
@@ -132,7 +133,10 @@ function ehecoatlDockerTimeGitlab(){
 }
 
 function ehecoatlDocker(){
-    echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
+    # echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
+    docker_logger
+    export myVM="${1}"
+    echo "\${myVM} = ${myVM}"
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
     echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \

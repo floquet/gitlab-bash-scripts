@@ -20,7 +20,7 @@ alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big
 # docker container prune
 
 # https://docs.docker.com/engine/reference/commandline/save/
-# docker save centos:7.9.2009 > centos.tar 
+# docker save centos:7.9.2009 > centos.tar
 # docker load centos.tar
 
 # $ docker commit 256ef1128538 dantopa/centos-7.9:alpha
@@ -127,7 +127,7 @@ function ehecoatlDockerTimeGitlab(){
  -v ${HOME}/Dropbox:/Dropbox                                    \
  -v /Users/${USER}:/${USER}                                     \
  -v /Users/${USER}/repos:/repos                                 \
- -v /Users/${USER}/repos/gitlab/SpWx:/home/dantopa/scratch/SpWx \
+ -v /Users/${USER}/repos/gitlab/SpWx:/repos/gitlab/SpWx \
  -v ${volume_ext}/repos:/vrepos                                 \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }

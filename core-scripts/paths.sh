@@ -39,7 +39,7 @@ export  repo_results_spack="${repo_build}/results-spack"
 export repo_scripts_docker="${repo_build}/scripts-docker"
 export  repo_scripts_spack="${repo_build}/scripts-spack"
 
-export  spwx="${github}/space-weather"
+#export  spwx="${github}/space-weather"
 export dcker="${github}/docker/unified"
 export astra="${github}/astra-spack-mirror"
 
@@ -51,9 +51,9 @@ alias  goScriptsSpack="echo 'cd ${repo_scripts_spack}';  cd ${repo_scripts_spack
 
 # #  G I T L A B
 export        gitlab="${repos}/gitlab"
-export         truth="${gitlab}/truth-magnetosphere"
-export scripts_truth="${truth}/scripts"
-export         spear="${gitlab}/SpEAR1"
+#export         truth="${gitlab}/truth-magnetosphere"
+#export scripts_truth="${truth}/scripts"
+export          SpWx="${gitlab}/SpWx"
 
 # #  S P A C K
 alias    goSPack="echo 'cd ${local_spack}'; cd ${local_spack}; pwd"

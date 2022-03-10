@@ -111,12 +111,12 @@ function ehecoatlDocker(){
     export myVM="${1}"
     echo "\${myVM} = ${myVM}"
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
-    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}cmagfield:/Tlaloc-cmagfield -v ${volume_ext}/spacktivity:/spacktivity ${1}"
+    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
  -v ${HOME}/Dropbox:/Dropbox                  \
  -v ${HOME}/repos:/repos                      \
- -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield \
  -v ${volume_ext}/repos:/vrepos               \
+ -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
@@ -125,13 +125,12 @@ function ehecoatlDockerTime(){
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
+ -v /Users/${USER}:/${USER}                   \
  -v /etc/localtime:/etc/localtime             \
  -v ${HOME}/Dropbox:/Dropbox                  \
- -v /Users/${USER}:/${USER}                   \
  -v /Users/${USER}/repos:/repos               \
+ -v ${volume_ext}/repos:/vrepos               \
  -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield \
- -v ${volume_ext}/repos:/vrepos               \
- -v ${volume_ext}/repos:/vrepos               \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 

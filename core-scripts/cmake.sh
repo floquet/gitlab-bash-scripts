@@ -5,7 +5,7 @@ export my_log="${configuration}/alias_assignments.txt"
 
 alias   again="cd ../; rm -rf build; mkdir build;  cd build"
 alias   quick="rm -rf build/ && mkdir build && cd build && cmake .."
-alias   spwx-quick='echo "cd ${HOME}/SpWx; rm -rf build/ && mkdir build && cd build && cmake3 ../source -DCMAKE_INSTALL_PREFIX=../"; cd ${HOME}/SpWx; rm -rf build/ && mkdir build && cd build && cmake3 ../source -DCMAKE_INSTALL_PREFIX=../'
+alias   spwx-quick='echo "cd ${SpWx}; rm -rf build/ && mkdir build && cd build && cmake3 ../source -DCMAKE_INSTALL_PREFIX=../"; cd ${SpWx}; rm -rf build/ && mkdir build && cd build && cmake3 ../source -DCMAKE_INSTALL_PREFIX=../'
 alias quicker="cd ..; quick;  make"
 
 alias crun="cd $DEMO_HOME; cd build; cmake ..; make"

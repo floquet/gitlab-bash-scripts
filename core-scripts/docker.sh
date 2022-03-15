@@ -2,6 +2,7 @@
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 alias bye="echo 'uname -n ; lsb_release -a; exit'; uname -n; lsb_release -a; exit"
+alias goodbye="echo 'uname -n ; lsb_release -a; exit'; uname -n; lsb_release -a; exit; echo 'docker commit $(uname -n) ${myVM}'"
 # https://superuser.com/questions/121627/how-to-get-elements-from-list-in-bash/121628
 alias session="echo $(uname -a) | cut -d' ' -f2"
 alias boo="list=$(uname -a); set -- list"
@@ -19,7 +20,7 @@ alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big
 # docker container prune
 
 # https://docs.docker.com/engine/reference/commandline/save/
-# docker save centos:7.9.2009 > centos.tar 
+# docker save centos:7.9.2009 > centos.tar
 # docker load centos.tar
 
 # $ docker commit 256ef1128538 dantopa/centos-7.9:alpha
@@ -30,6 +31,23 @@ alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big
 #alias reap="${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash"
 #alias reap="echo '${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test'''; ${rgaddr}/repos/bitbucket/spack_tools/scripts/reaper.bash; git -C ${stools} commit -m ''test''"
 #export generics="${ddocker}/unified/generics/"
+
+# dtopa@swe45.local:SpWx $ docker container ls
+# CONTAINER ID   IMAGE          COMMAND   CREATED       STATUS       PORTS     NAMES
+# 229033ca032d   ubuntu:22.04   "bash"    2 hours ago   Up 2 hours             stoic_wozniak
+# dtopa@swe45.local:SpWx $ docker container ls
+# CONTAINER ID   IMAGE               COMMAND       CREATED          STATUS         PORTS     NAMES
+# 313e56f546b6   spwx-02-amzn:2022   "/bin/bash"   11 seconds ago   Up 8 seconds             inspiring_bardeen
+# 229033ca032d   ubuntu:22.04        "bash"        2 hours ago      Up 2 hours               stoic_wozniak
+# dtopa@swe45.local:SpWx $ docker commit 313e56f546b6 dantopa/spwx-02-amzn:2022
+# sha256:3b0bd641729f382d5a66777b20ca5186fcdd4cd1f5451b352018ccf36dbe4b6e
+# dtopa@swe45.local:SpWx $  docker push dantopa/spwx-02-amzn:2022
+# The push refers to repository [docker.io/dantopa/spwx-02-amzn]
+# 30b6acf122c1: Pushing [=>                                                 ]  23.73MB/1.069GB
+# 26fa52930e9c: Pushing [==>                                                ]  12.21MB/270MB
+# 81faef12b1ed: Pushing [>                                                  ]  15.37MB/3.464GB
+# af1ced3b8ec9: Pushing [==>                                                ]  10.89MB/181.8MB
+
 
 function xiuhcoatlDocker(){
 # myDocker ubuntu:22.04
@@ -87,15 +105,31 @@ function quaxolotlDockerTime(){
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
+function ehecoatlDocker(){
+    # echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
+    docker_logger
+    export myVM="${1}"
+    echo "\${myVM} = ${myVM}"
+# volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
+    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield -v ${volume_ext}/spacktivity:/spacktivity ${1}"
+    docker run -it \
+ -v ${HOME}/Dropbox:/Dropbox                  \
+ -v ${HOME}/repos:/repos                      \
+ -v ${volume_ext}/repos:/vrepos               \
+ -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield \
+ -v ${volume_ext}/spacktivity:/spacktivity  ${1}
+}
+
 function ehecoatlDockerTime(){
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
- -v /etc/localtime:/etc/localtime         \
- -v ${HOME}/Dropbox:/Dropbox              \
- -v /Users/${USER}:/${USER}               \
- -v /Users/${USER}/repos:/repos           \
- -v ${volume_ext}/repos:/vrepos           \
+ -v /Users/${USER}:/${USER}                   \
+ -v /etc/localtime:/etc/localtime             \
+ -v ${HOME}/Dropbox:/Dropbox                  \
+ -v /Users/${USER}/repos:/repos               \
+ -v ${volume_ext}/repos:/vrepos               \
+ -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
@@ -107,18 +141,8 @@ function ehecoatlDockerTimeGitlab(){
  -v ${HOME}/Dropbox:/Dropbox                                    \
  -v /Users/${USER}:/${USER}                                     \
  -v /Users/${USER}/repos:/repos                                 \
- -v /Users/${USER}/repos/gitlab/SpWx:/home/dantopa/scratch/SpWx \
+ -v /Users/${USER}/repos/gitlab/SpWx:/repos/gitlab/SpWx         \
  -v ${volume_ext}/repos:/vrepos                                 \
- -v ${volume_ext}/spacktivity:/spacktivity  ${1}
-}
-
-function ehecoatlDocker(){
-# volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
-    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
-    docker run -it \
- -v ${HOME}/Dropbox:/Dropbox    \
- -v ${HOME}/repos:/repos        \
- -v ${volume_ext}/repos:/vrepos \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 

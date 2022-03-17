@@ -95,7 +95,6 @@ function quaxolotlDocker(){
 }
 
 function quaxolotlDockerTime(){
-    echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${volume_ext}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
@@ -106,36 +105,40 @@ function quaxolotlDockerTime(){
 }
 
 function ehecoatlDocker(){
-    # echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
     docker_logger
     export myVM="${1}"
     echo "\${myVM} = ${myVM}"
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
-    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield -v ${volume_ext}/spacktivity:/spacktivity ${1}"
+    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/SpWx:/SpWx -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
  -v ${HOME}/Dropbox:/Dropbox                  \
  -v ${HOME}/repos:/repos                      \
  -v ${volume_ext}/repos:/vrepos               \
+ -v ${volume_ext}/SpWx:/SpWx                  \
  -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
 function ehecoatlDockerTime(){
-    echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
+    docker_logger
+    export myVM="${1}"
+    echo "\${myVM} = ${myVM}"
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
-    echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
+    echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/SpWx:/SpWx -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
- -v /Users/${USER}:/${USER}                   \
  -v /etc/localtime:/etc/localtime             \
  -v ${HOME}/Dropbox:/Dropbox                  \
- -v /Users/${USER}/repos:/repos               \
+ -v ${HOME}/repos:/repos                      \
  -v ${volume_ext}/repos:/vrepos               \
+ -v ${volume_ext}/SpWx:/SpWx                  \
  -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
 function ehecoatlDockerTimeGitlab(){
-    echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
+    docker_logger
+    export myVM="${1}"
+    echo "\${myVM} = ${myVM}"
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \

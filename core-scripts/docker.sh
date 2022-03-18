@@ -17,6 +17,8 @@ export dirDropbox="${repo}/spacktivity/mirror"
 export file_docker_log="${repo_results_docker}/vm-log-book.txt"
 alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big_spack_mirror}';spack mirror add local_filesystem file://${big_spack_mirror}"
 
+# docker image import /Volumes/Tlaloc/docker-land/tarballs/dantopa-base-centos-7.9.2009.gz test:hope
+
 # docker container prune
 
 # https://docs.docker.com/engine/reference/commandline/save/

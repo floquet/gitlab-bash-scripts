@@ -3,6 +3,7 @@ printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 export my_log="${configuration}/alias_assignments.txt"
 
+# alias  cmake3="/opt/local/bin/cmake"
 alias   again="cd ../; rm -rf build; mkdir build;  cd build"
 alias   quick="rm -rf build/ && mkdir build && cd build && cmake .."
 alias   spwx-quick='echo "cd ${SpWx}; rm -rf build/ && mkdir build && cd build && cmake3 ../source -DCMAKE_INSTALL_PREFIX=../"; cd ${SpWx}; rm -rf build/ && mkdir build && cd build && cmake3 ../source -DCMAKE_INSTALL_PREFIX=../'

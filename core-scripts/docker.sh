@@ -19,6 +19,8 @@ export dirDropbox="${repo}/spacktivity/mirror"
 export file_docker_log="${repo_results_docker}/vm-log-book.txt"
 alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big_spack_mirror}';spack mirror add local_filesystem file://${big_spack_mirror}"
 
+# docker image import /Volumes/Tlaloc/docker-land/tarballs/dantopa-base-centos-7.9.2009.gz test:hope
+
 # docker container prune
 
 # https://docs.docker.com/engine/reference/commandline/save/
@@ -115,40 +117,48 @@ function ehecoatlDocker(){
     export myVM="${1}"
     echo "\${myVM} = ${myVM}"
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
-    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield -v ${volume_ext}/spacktivity:/spacktivity ${1}"
+    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/:/Tlaloc -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/SpWx:/SpWx -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
  -v ${HOME}/Dropbox:/Dropbox                  \
  -v ${HOME}/repos:/repos                      \
  -v ${volume_ext}/repos:/vrepos               \
- -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield \
+ -v ${volume_ext}/:/Tlaloc                    \
+ -v ${volume_ext}/SpWx:/SpWx                  \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
 function ehecoatlDockerTime(){
+    docker_logger
+    export myVM="${1}"
+    echo "\${myVM} = ${myVM}"
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
     export myVM="${1}"
     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
- -v /Users/${USER}:/${USER}                   \
  -v /etc/localtime:/etc/localtime             \
  -v ${HOME}/Dropbox:/Dropbox                  \
- -v /Users/${USER}/repos:/repos               \
+ -v ${HOME}/repos:/repos                      \
  -v ${volume_ext}/repos:/vrepos               \
- -v ${volume_ext}/cmagfield:/Tlaloc-cmagfield \
+ -v ${volume_ext}/:/Tlaloc                    \
+ -v ${volume_ext}/SpWx:/SpWx                  \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
 function ehecoatlDockerTimeGitlab(){
+    docker_logger
+    export myVM="${1}"
+    echo "\${myVM} = ${myVM}"
 # volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
     export myVM="${1}"
     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
- -v /etc/localtime:/etc/localtime                               \
- -v ${HOME}/Dropbox:/Dropbox                                    \
- -v /Users/${USER}:/${USER}                                     \
- -v /Users/${USER}/repos:/repos                                 \
- -v /Users/${USER}/repos/gitlab/SpWx:/repos/gitlab/SpWx         \
- -v ${volume_ext}/repos:/vrepos                                 \
+ -v /etc/localtime:/etc/localtime                       \
+ -v /Users/${USER}/repos/gitlab/SpWx:/repos/gitlab/SpWx \
+ -v ${HOME}/Dropbox:/Dropbox                            \
+ -v ${HOME}/repos:/repos                                \
+ -v ${volume_ext}/repos:/vrepos                         \
+ -v ${volume_ext}/:/Tlaloc                              \
+ -v ${volume_ext}/SpWx:/SpWx                            \
  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 

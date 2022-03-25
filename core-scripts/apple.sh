@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
-alias another_mathematica='open -n /Volumes/Macintosh\ HD/Applications/Wolfram/Mathematica\ 11.3.0.0.app'  # launch second kernel
+alias another_mathematica='open -n /Volumes/Macintosh\ HD/Applications/Mathematica.app'  # launch second kernel
 
 function profiler_tasker(){
     #write_apple_profiler ${configuration}/${1}

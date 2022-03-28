@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
-alias bye="echo 'lsb_release -a; exit'; lsb_release -a; echo 'docker commit $(uname -n) \${myVM}'; exit"
+alias bye="echo 'lsb_release -a; exit'; lsb_release -a; echo '\${myVM} = ${myVM}'; echo 'docker commit $(uname -n) \${myVM}'; exit"
 alias goodbye="echo 'uname -n ; lsb_release -a; exit'; uname -n; lsb_release -a; exit; echo 'docker commit $(uname -n) ${myVM}'"
 # https://superuser.com/questions/121627/how-to-get-elements-from-list-in-bash/121628
 alias session="echo $(uname -a) | cut -d' ' -f2"
@@ -77,7 +77,7 @@ function xiuhcoatlDockerTime {
     export myVM="${1}"
     echo "docker run -it -v /etc/localtime:/etc/localtime -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Infernum:/Infernum -v /Volumes/Paradisum:/Paradisum -v /Volumes/Purgatorium:/Purgatorium -v /Volumes/atacama:/atacama -v /Volumes/docker:/docker -v /Volumes/gobi:/gobi -v /Volumes/sonoran:/sonoran -v /Volumes/repos:/repos -v /Volumes/spacktivity:/spacktivity ${1}"
     docker run -it                     \
- -v /etc/localtime:/etc/localtime       \
+ -v /etc/localtime:/etc/localtime      \
  -v /Users/dantopa/Dropbox:/Dropbox    \
  -v /Volumes/Metztli:/Metztli          \
  -v /Volumes/Infernum:/Infernum        \

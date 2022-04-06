@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
-alias bye="echo 'lsb_release -a; exit'; lsb_release -a; echo '\${myVM} = ${myVM}'; echo 'docker commit $(uname -n) \${myVM}'; exit"
+# alias bye="echo 'lsb_release -a; exit'; lsb_release -a; echo '\${myVM} = ${myVM}'; echo 'docker commit $(uname -n) \${myVM}'; exit"
+alias bye='echo "lsb_release -a; exit"; lsb_release -a; echo "\${myVM} = ${myVM}"; echo "docker commit $(uname -n) \${myVM}"; exit'
 alias goodbye="echo 'uname -n ; lsb_release -a; exit'; uname -n; lsb_release -a; exit; echo 'docker commit $(uname -n) ${myVM}'"
 # https://superuser.com/questions/121627/how-to-get-elements-from-list-in-bash/121628
 alias session="echo $(uname -a) | cut -d' ' -f2"

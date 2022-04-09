@@ -7,10 +7,11 @@ alias goodbye="echo 'uname -n ; lsb_release -a; exit'; uname -n; lsb_release -a;
 alias session="echo $(uname -a) | cut -d' ' -f2"
 alias boo="list=$(uname -a); set -- list"
 alias dimage="echo 'docker images'; docker images"
+alias prune="echo 'docker container prune'; docker container prune"
 
 export centos_version="7.9.2009"
 export ubuntu_version="22.04"
-export amazon_version="2.0.20220218.1"
+export amzn_version="2.0.20220316.0"
 export    dbase="dantopa/base-centos:${centos_version}"
 export dscience="dantopa/science-centos:${centos_version}"
 

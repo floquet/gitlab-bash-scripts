@@ -9,6 +9,7 @@ alias session="echo $(uname -a) | cut -d' ' -f2"
 alias boo="list=$(uname -a); set -- list"
 alias dimage="echo 'docker images'; docker images"
 alias prune="echo 'docker container prune'; docker container prune"
+alias dpmyvm="echo 'docker push ${myVM}' ; docker push ${myVM}"
 
 export centos_version="7.9.2009"
 export ubuntu_version="22.04"

@@ -19,6 +19,9 @@ alias mothership="echo 'git remote show origin'; git remote show origin"
 alias myurl="git config --get remote.origin.url"
 alias gpg_check='git verify-commit HEAD~0; export GPG_SIGNED=$?; echo "verify-commit exit code = \$GPG_SIGNED = $GPG_SIGNED"'
 
+% https://stackoverflow.com/questions/961101/git-find-all-uncommitted-locals-repos-in-a-directory-tree
+% find . -type d -name '.git' | while read dir ; do sh -c "cd $dir/../ && echo -e \"\nGIT STATUS IN ${dir//\.git/}\" && git status -s" ; done
+
 alias floquet="echo 'git remote add floquet https://github.com/floquet/spack.git'; git remote add floquet https://github.com/floquet/spack.git"
 
 alias sweep_repos="echo '. \${core}/git-puller.sh'; . ${core}/git-puller.sh"

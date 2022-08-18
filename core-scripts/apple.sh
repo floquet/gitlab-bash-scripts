@@ -1,7 +1,8 @@
 #! /usr/bin/env bash
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
-alias another_mathematica='open -n /Volumes/Macintosh\ HD/Applications/Wolfram/Mathematica\ 13.0.0.app'  # launch second kernel
+#alias another_mathematica='open -n /Volumes/Macintosh\ HD/Applications/Wolfram/Mathematica\ 13.0.0.app'  # launch second kernel
+alias another_mathematica='open -n /Volumes/Macintosh\ HD/Applications/Mathematica.app'  # launch second kernel
 alias backup_mathematica="echo 'rsync -au --progress --exclude=".*" ${HOME}/Mathematica_files/nb/ /Volumes/atacama/nb/' ; rsync -au --progress --exclude=".*" ${HOME}/Mathematica_files/nb/ /Volumes/atacama/nb/"
 alias mm_backup="rsync -au --progress --exclude=".*" ${HOME}/Mathematica_files/nb/. ${github}/experiment-mathematica/nb/."
 alias mm_backup="rsync -au --progress --exclude=".*" ${HOME}/Mathematica_files/. ${github}/experiment-mathematica/."

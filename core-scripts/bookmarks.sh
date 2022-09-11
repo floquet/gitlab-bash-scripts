@@ -14,6 +14,7 @@ alias    golibraries="cd ${mySpack}/libraries; pwd; lss"  # variable set in ${ba
 alias     godotspack="cd ~/.spack;             pwd"
 alias        govault="cd ${vault};             pwd"  # variable created in ${core}/platforms.sh
 alias      gostrange="cd ${bitbucket}/strange; pwd"
+alias         godtra="cd ${github}/dtra;       pwd"
 # alias       gosbatch="gospack; cd sbatch-output; pwd"
 
 if [ -d "${repos}" ]; then

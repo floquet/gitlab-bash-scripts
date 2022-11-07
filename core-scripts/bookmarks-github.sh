@@ -3,22 +3,22 @@ printf '%s\n' "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 export repos_github=""
 
-if [ -d "${github}/build-issues" ]; then
-    export  builds="${github}/docker"
-    alias gobuilds="cd ${ddocker}; pwd"
+if [ -d "${github}/animations" ]; then
+    export  animations="${github}/animations"
+    alias goanimations="cd ${animations}; pwd"
+          repos_github="${repos_github} animations"
+fi
+
+if [ -d "${github}/builds" ]; then
+    export  builds="${github}/builds"
+    alias gobuilds="cd ${builds}; pwd"
     repos_github="${repos_github} builds"
 fi
 
-if [ -d "${github}/catalog-spack" ]; then
-    export  catalog="${github}/catalog-spack"
-    alias gocatalog="cd ${catalog}; pwd"
-    repos_github="${repos_github} catalog"
-fi
-
-if [ -d "${github}/cuda" ]; then
-    export  cuda="${github}/cuda"
-    alias gocuda="cd ${cuda}; pwd"
-    repos_github="${repos_github} cuda"
+if [ -d "${github}/conferences" ]; then
+    export  conferences="${github}/conferences"
+    alias goconferences="cd ${conferences}; pwd"
+           repos_github="${repos_github} conferences"
 fi
 
 if [ -d "${github}/docker" ]; then
@@ -33,16 +33,10 @@ if [ -d "${github}/gitlab-bash-scripts" ]; then
     repos_github="${repos_github} gbs"
 fi
 
-if [ -d "${github}/hydro" ]; then
-    export  hydro="${github}/hydro"
-    alias gohydro="cd ${hydro}; pwd"
-    repos_github="${repos_github} hydro"
-fi
-
-if [ -d "${github}/LLNL-bash" ]; then
-    export  lbash="${github}/LLNL-bash"
-    alias golbash="cd ${lbash}; pwd"
-    repos_github="${repos_github} lbash"
+if [ -d "${github}/jop" ]; then
+    export   jop="${github}/jop"
+    alias  gojop="cd ${jop}; pwd"
+    repos_github="${repos_github} jop"
 fi
 
 if [ -d "${github}/modern-fortran" ]; then
@@ -57,10 +51,23 @@ if [ -d "${github}/nimbus" ]; then
     repos_github="${repos_github} nimbus"
 fi
 
+if [ -d "${github}/nursery-slide-decks" ]; then
+    export d_nursery="${github}/nursery-slide-decks"
+    alias  gonursery="cd ${d_nursery}; pwd"
+    alias  godtra="cd ${d_nursery}/beamer/dtra; pwd"
+    repos_github="${repos_github} d_nursery"
+fi
+
 if [ -d "${github}/python" ]; then
     export d_python="${github}/python"
     alias  gopython="cd ${d_python}; pwd"
     repos_github="${repos_github} python"
+fi
+
+if [ -d "${github}/reconstructor" ]; then
+    export  reconstructor="${github}/reconstructor"
+    alias goreconstructor="cd ${reconstructor}; pwd"
+             repos_github="${repos_github} reconstructor"
 fi
 
 if [ -d "${github}/spacktivity" ]; then

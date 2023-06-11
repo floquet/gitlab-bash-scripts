@@ -38,6 +38,9 @@ alias  echocf="echo $cflags"
 # export fortran_compiler_mpi_gnu="mpif90"
 # export fortran_compiler_mpi_cray="ftn"
 
+# To make openmpi-default's wrappers the default (what you get when you execute 'mpicc' etc.) please run:
+alias wrappersFortran="echo 'sudo port select --set mpi openmpi-mp-fortran'; sudo port select --set mpi openmpi-mp-fortran"
+
 # # F U N C T I O N S
 function gf(){
   echo "gcc compilation flags: "$gflags;

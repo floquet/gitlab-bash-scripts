@@ -33,6 +33,12 @@ if [ -d "${github}/gitlab-bash-scripts" ]; then
     repos_github="${repos_github} gbs"
 fi
 
+if [ -d "${github}/f" ]; then
+    export gf="${github}/f"
+    alias gof="cd ${gf}; pwd"
+    repos_github="${repos_github} gf"
+fi
+
 if [ -d "${github}/jop" ]; then
     export   jop="${github}/jop"
     alias  gojop="cd ${jop}; pwd"

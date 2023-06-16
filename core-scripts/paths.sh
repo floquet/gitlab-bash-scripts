@@ -58,3 +58,12 @@ export          SpWx="${gitlab}/SpWx"
 # #  S P A C K
 alias    goSPack="echo 'cd ${local_spack}'; cd ${local_spack}; pwd"
 alias reap-spack="echo 'source ${repo_scripts_spack}/reaper/test-reaper.sh'; source ${repo_scripts_spack}/reaper/test-reaper.sh"
+
+# #  L E A S T  S Q U A R E S
+export dirLsIo="${HOME}/Mathematica_files/io/projects/least\ squares"
+export dirLsNb="${HOME}/Mathematica_files/nb/projects/least\ squares"
+
+alias golsio="echo 'cd ${dirLsIo}'; cd ${dirLsIo};"pwd
+alias golsnb="echo 'cd ${dirLsNb}'; cd ${dirLsNb};"pwd
+
+

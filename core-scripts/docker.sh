@@ -72,20 +72,35 @@ function xiuhcoatlDocker(){
  -v /Volumes/gobi:/gobi                \
  -v /Volumes/sonoran:/sonoran          \
  -v /Volumes/repos:/repos              \
- -v /Volumes/spacktivity:/spacktivity  ${1}
+ -v   /Volumes/spacktivity:/spacktivity  ${1}
 }
+
+# function xiuhcoatlDockerTime {
+# # myDocker ubuntu:22.04
+#     export myVM="${1}"
+#     echo "docker run -it -v /etc/localtime:/etc/localtime -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Infernum:/Infernum -v /Volumes/Paradisum:/Paradisum -v /Volumes/Purgatorium:/Purgatorium -v /Volumes/atacama:/atacama -v /Volumes/docker:/docker -v /Volumes/gobi:/gobi -v /Volumes/sonoran:/sonoran -v /Volumes/repos:/repos -v /Volumes/spacktivity:/spacktivity ${1}"
+#     docker run -it                     \
+#  -v /etc/localtime:/etc/localtime      \
+#  -v /Users/dantopa/Dropbox:/Dropbox    \
+#  -v /Volumes/Metztli:/Metztli          \
+#  -v /Volumes/Infernum:/Infernum        \
+#  -v /Volumes/Paradisum:/Paradisum      \
+#  -v /Volumes/Purgatorium:/Purgatorium  \
+#  -v /Volumes/atacama:/atacama          \
+#  -v /Volumes/docker:/docker            \
+#  -v /Volumes/gobi:/gobi                \
+#  -v /Volumes/sonoran:/sonoran          \
+#  -v /Volumes/repos:/repos              \
+#  -v /Volumes/spacktivity:/spacktivity  ${1}
+# }
 
 function xiuhcoatlDockerTime {
 # myDocker ubuntu:22.04
     export myVM="${1}"
-    echo "docker run -it -v /etc/localtime:/etc/localtime -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Infernum:/Infernum -v /Volumes/Paradisum:/Paradisum -v /Volumes/Purgatorium:/Purgatorium -v /Volumes/atacama:/atacama -v /Volumes/docker:/docker -v /Volumes/gobi:/gobi -v /Volumes/sonoran:/sonoran -v /Volumes/repos:/repos -v /Volumes/spacktivity:/spacktivity ${1}"
+    echo "docker run -it -v /etc/localtime:/etc/localtime -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/atacama:/atacama -v /Volumes/docker:/docker -v /Volumes/gobi:/gobi -v /Volumes/sonoran:/sonoran -v /Volumes/repos:/repos -v /Volumes/spacktivity:/spacktivity ${1}"
     docker run -it                     \
  -v /etc/localtime:/etc/localtime      \
  -v /Users/dantopa/Dropbox:/Dropbox    \
- -v /Volumes/Metztli:/Metztli          \
- -v /Volumes/Infernum:/Infernum        \
- -v /Volumes/Paradisum:/Paradisum      \
- -v /Volumes/Purgatorium:/Purgatorium  \
  -v /Volumes/atacama:/atacama          \
  -v /Volumes/docker:/docker            \
  -v /Volumes/gobi:/gobi                \

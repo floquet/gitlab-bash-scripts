@@ -59,9 +59,18 @@ fi
 
 if [ -d "${github}/nursery-slide-decks" ]; then
     export d_nursery="${github}/nursery-slide-decks"
+    export    d_dtra="${d_nursery}/beamer/dtra/briefings"
+    export   d_paris="${d_dtra}/paris"
     alias  gonursery="cd ${d_nursery}; pwd"
-    alias  godtra="cd ${d_nursery}/beamer/dtra; pwd"
-    repos_github="${repos_github} d_nursery"
+    alias     godtra="cd ${d_dtra}/; pwd"
+    alias    goparis="cd ${d_paris}/; pwd"
+        repos_github="${repos_github} d_nursery"
+fi
+
+if [ -d "${github}/nursery-slide-decks/paris" ]; then
+    export d_paris="${github}/python"
+    alias  gopython="cd ${d_python}; pwd"
+    repos_github="${repos_github} python"
 fi
 
 if [ -d "${github}/python" ]; then

@@ -10,19 +10,22 @@ alias boo="list=$(uname -a); set -- list"
 alias dimage="echo 'docker images'; docker images"
 alias prune="echo 'docker container prune'; docker container prune"
 alias dpmyvm="echo 'docker push ${myVM}' ; docker push ${myVM}"
+alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big_spack_mirror}';spack mirror add local_filesystem file://${big_spack_mirror}"
 
 export centos_version="7.9.2009"
 export ubuntu_version="22.04"
-export amzn_version="2.0.20220316.0"
+export   amzn_version="2.0.20220316.0"
 export debian_version="11.3"
 export    dbase="dantopa/base-centos:${centos_version}"
 export dscience="dantopa/science-centos:${centos_version}"
 export dirDockerLocker="${ddocker}"
-export dirDropbox="${repo}/spacktivity/mirror"
+export      dirDropbox="${repo}/spacktivity/mirror"
 export file_docker_log="${repo_results_docker}/vm-log-book.txt"
-alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big_spack_mirror}';spack mirror add local_filesystem file://${big_spack_mirror}"
 
-# docker image import /Volumes/Tlaloc/docker-land/tarballs/dantopa-base-centos-7.9.2009.gz test:hope
+# what container was running?
+# docker ps -l
+
+# docker image import ${volume_ext}/Tlaloc/docker-land/tarballs/dantopa-base-centos-7.9.2009.gz test:hope
 
 # docker container prune
 
@@ -58,59 +61,63 @@ alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big
 
 
 function xiuhcoatlDocker(){
+    docker_logger
 # myDocker ubuntu:22.04
     export myVM="${1}"
-    echo "docker run -it -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Infernum:/Infernum -v /Volumes/Paradisum:/Paradisum -v /Volumes/Purgatorium:/Purgatorium -v /Volumes/atacama:/atacama -v /Volumes/docker:/docker -v /Volumes/gobi:/gobi -v /Volumes/sonoran:/sonoran -v /Volumes/repos:/repos -v /Volumes/spacktivity:/spacktivity ${1}"
+    #echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/Metztli:/Metztli -v ${volume_ext}/Infernum:/Infernum -v ${volume_ext}/Paradisum:/Paradisum -v ${volume_ext}/Purgatorium:/Purgatorium -v ${volume_ext}/atacama:/atacama -v ${volume_ext}/docker:/docker -v ${volume_ext}/gobi:/gobi -v ${volume_ext}/sonoran:/sonoran -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
+    echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/atacama:/atacama -v ${volume_ext}/docker:/docker -v ${volume_ext}/gobi:/gobi -v ${volume_ext}/sonoran:/sonoran -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
- -v /Users/dantopa/Dropbox:/Dropbox    \
- -v /Volumes/Metztli:/Metztli          \
- -v /Volumes/Infernum:/Infernum        \
- -v /Volumes/Paradisum:/Paradisum      \
- -v /Volumes/Purgatorium:/Purgatorium  \
- -v /Volumes/atacama:/atacama          \
- -v /Volumes/docker:/docker            \
- -v /Volumes/gobi:/gobi                \
- -v /Volumes/sonoran:/sonoran          \
- -v /Volumes/repos:/repos              \
- -v   /Volumes/spacktivity:/spacktivity  ${1}
+ -v ${HOME}/Dropbox:/Dropbox    \
+ -v ${volume_ext}/Metztli:/Metztli          \
+ -v ${volume_ext}/Infernum:/Infernum        \
+ -v ${volume_ext}/Paradisum:/Paradisum      \
+ -v ${volume_ext}/Purgatorium:/Purgatorium  \
+ -v ${volume_ext}/atacama:/atacama          \
+ -v ${volume_ext}/docker:/docker            \
+ -v ${volume_ext}/gobi:/gobi                \
+ -v ${volume_ext}/sonoran:/sonoran          \
+ -v ${volume_ext}/repos:/repos              \
+ -v   ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
 # function xiuhcoatlDockerTime {
 # # myDocker ubuntu:22.04
 #     export myVM="${1}"
-#     echo "docker run -it -v /etc/localtime:/etc/localtime -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/Metztli:/Metztli -v /Volumes/Infernum:/Infernum -v /Volumes/Paradisum:/Paradisum -v /Volumes/Purgatorium:/Purgatorium -v /Volumes/atacama:/atacama -v /Volumes/docker:/docker -v /Volumes/gobi:/gobi -v /Volumes/sonoran:/sonoran -v /Volumes/repos:/repos -v /Volumes/spacktivity:/spacktivity ${1}"
+#     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/Metztli:/Metztli -v ${volume_ext}/Infernum:/Infernum -v ${volume_ext}/Paradisum:/Paradisum -v ${volume_ext}/Purgatorium:/Purgatorium -v ${volume_ext}/atacama:/atacama -v ${volume_ext}/docker:/docker -v ${volume_ext}/gobi:/gobi -v ${volume_ext}/sonoran:/sonoran -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
 #     docker run -it                     \
 #  -v /etc/localtime:/etc/localtime      \
-#  -v /Users/dantopa/Dropbox:/Dropbox    \
-#  -v /Volumes/Metztli:/Metztli          \
-#  -v /Volumes/Infernum:/Infernum        \
-#  -v /Volumes/Paradisum:/Paradisum      \
-#  -v /Volumes/Purgatorium:/Purgatorium  \
-#  -v /Volumes/atacama:/atacama          \
-#  -v /Volumes/docker:/docker            \
-#  -v /Volumes/gobi:/gobi                \
-#  -v /Volumes/sonoran:/sonoran          \
-#  -v /Volumes/repos:/repos              \
-#  -v /Volumes/spacktivity:/spacktivity  ${1}
+#  -v ${HOME}/Dropbox:/Dropbox    \
+#  -v ${volume_ext}/Metztli:/Metztli          \
+#  -v ${volume_ext}/Infernum:/Infernum        \
+#  -v ${volume_ext}/Paradisum:/Paradisum      \
+#  -v ${volume_ext}/Purgatorium:/Purgatorium  \
+#  -v ${volume_ext}/atacama:/atacama          \
+#  -v ${volume_ext}/docker:/docker            \
+#  -v ${volume_ext}/gobi:/gobi                \
+#  -v ${volume_ext}/sonoran:/sonoran          \
+#  -v ${volume_ext}/repos:/repos              \
+#  -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 # }
 
 function xiuhcoatlDockerTime {
 # myDocker ubuntu:22.04
+    docker_logger
     export myVM="${1}"
-    echo "docker run -it -v /etc/localtime:/etc/localtime -v /Users/dantopa/Dropbox:/Dropbox -v /Volumes/atacama:/atacama -v /Volumes/docker:/docker -v /Volumes/gobi:/gobi -v /Volumes/sonoran:/sonoran -v /Volumes/repos:/repos -v /Volumes/spacktivity:/spacktivity ${1}"
+    echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/atacama:/atacama -v ${volume_ext}/docker:/docker -v ${volume_ext}/gobi:/gobi -v ${volume_ext}/sonoran:/sonoran -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it                     \
  -v /etc/localtime:/etc/localtime      \
- -v /Users/dantopa/Dropbox:/Dropbox    \
- -v /Volumes/atacama:/atacama          \
- -v /Volumes/docker:/docker            \
- -v /Volumes/gobi:/gobi                \
- -v /Volumes/sonoran:/sonoran          \
- -v /Volumes/repos:/repos              \
- -v /Volumes/spacktivity:/spacktivity  ${1}
+ -v ${HOME}/Dropbox:/Dropbox    \
+ -v ${volume_ext}/atacama:/atacama          \
+ -v ${volume_ext}/docker:/docker            \
+ -v ${volume_ext}/gobi:/gobi                \
+ -v ${volume_ext}/sonoran:/sonoran          \
+ -v ${volume_ext}/repos:/repos              \
+ -v ${volume_ext}/spacktivity:/spacktivity  ${1}
 }
 
 function quaxolotlDocker(){
-# volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
+    docker_logger
+# volume_ext set in .quaxolotl.sh as ${volume_ext}/T7-Touch
     export myVM="${1}"
     echo "docker run -it -v ${volume_ext}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
@@ -120,7 +127,8 @@ function quaxolotlDocker(){
 }
 
 function quaxolotlDockerTime(){
-# volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
+    docker_logger
+# volume_ext set in .quaxolotl.sh as ${volume_ext}/T7-Touch
     export myVM="${1}"
     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${volume_ext}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
@@ -131,10 +139,11 @@ function quaxolotlDockerTime(){
 }
 
 function ehecoatlDocker(){
+    docker_logger
     # echo "$(date +%Y-%m-%d\ %H:%M:%S) ${dist}-${release}, network node hostname = $(uname -n), ${machine}-(${moniker})"  >> ${file_docker_log}
     export myVM="${1}"
     echo "\${myVM} = ${myVM}"
-# volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
+# volume_ext set in .quaxolotl.sh as ${volume_ext}/T7-Touch
     echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${HOME}/repos:/repos -v ${volume_ext}/:/Tlaloc -v ${volume_ext}/repos:/vrepos -v ${volume_ext}/SpWx:/SpWx -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
  -v ${HOME}/Dropbox:/Dropbox                  \
@@ -149,7 +158,7 @@ function ehecoatlDockerTime(){
     docker_logger
     export myVM="${1}"
     echo "\${myVM} = ${myVM}"
-# volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
+# volume_ext set in .quaxolotl.sh as ${volume_ext}/T7-Touch
     export myVM="${1}"
     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
@@ -166,7 +175,7 @@ function ehecoatlDockerTimeGitlab(){
     docker_logger
     export myVM="${1}"
     echo "\${myVM} = ${myVM}"
-# volume_ext set in .quaxolotl.sh as /Volumes/T7-Touch
+# volume_ext set in .quaxolotl.sh as ${volume_ext}/T7-Touch
     export myVM="${1}"
     echo "docker run -it -v /etc/localtime:/etc/localtime -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \

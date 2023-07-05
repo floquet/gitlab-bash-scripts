@@ -10,7 +10,7 @@ alias myprompt="export PS1='\[\033[00;35m\]\u\[\033[00m\]@\[\033[00;35m\]\H\[\03
 
 myprompt
 
-export CDF_LIB="${HOME}/apps/cdf-3.8.0/lib"
+% export CDF_LIB="${HOME}/apps/cdf-3.8.0/lib"
 
 export bold=$(tput bold)
 export normal=$(tput sgr0)

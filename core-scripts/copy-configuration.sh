@@ -25,4 +25,5 @@ echo "git add -A . " #"(${config_repo})"
 echo "git commit -m '${moniker} ${owner} ${dist}-${release} $(date +%Y-%m-%d\ %H:%M)'"
       git commit -m "${moniker} ${owner} ${dist}-${release} $(date +%Y-%m-%d\ %H:%M)"
 echo ${PWD} # display repo location
+echo "to push configuration to repo, use alias gomac"
 cd ${here} # return to inital directory

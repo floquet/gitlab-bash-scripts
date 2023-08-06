@@ -1,0 +1,47 @@
+root@d57443f1ba5c:books $ date
+Sat Jul 15 17:51:59 MDT 2023
+
+don't forget:
+dnf install gh
+dnf install git-lfs
+
+https://cli.github.com/manual/gh_auth_login
+https://github.com/settings/tokens
+
+root@d57443f1ba5c:f $ vim $core/notes/github-cli-authentication
+
+root@d57443f1ba5c:f $ git remote -v
+origin	https://github.com/floquet/f.git (fetch)
+origin	https://github.com/floquet/f.git (push)
+
+root@d57443f1ba5c:f $ git remote set-url origin git@github.com:floquet/f.git
+
+root@d57443f1ba5c:f $ git remote set-url -v
+origin	git@github.com:floquet/f.git (fetch)
+origin	git@github.com:floquet/f.git (push)
+
+root@d57443f1ba5c:f $ git push
+The authenticity of host 'github.com (140.82.114.4)' can't be established.
+ED25519 key fingerprint is SHA256:+DiY3wvvV6TuJJhbpZisF/zLDA0zPMSvHdkr4UvCOqU.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? y
+Please type 'yes', 'no' or the fingerprint: yes
+Warning: Permanently added 'github.com' (ED25519) to the list of known hosts.
+To github.com:floquet/f.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'github.com:floquet/f.git'
+
+root@d57443f1ba5c:books $ gh auth login
+? What account do you want to log into? GitHub.com
+? What is your preferred protocol for Git operations? SSH
+? Upload your SSH public key to your GitHub account? /home/dantopa/.ssh/id_ed25519.pub
+? Title for your SSH key: GitHub CLI
+? How would you like to authenticate GitHub CLI? Paste an authentication token
+Tip: you can generate a Personal Access Token here https://github.com/settings/tokens
+The minimum required scopes are 'repo', 'read:org', 'admin:public_key'.
+? Paste your authentication token: ****************************************
+- gh config set -h github.com git_protocol ssh
+✓ Configured git protocol
+✓ SSH key already existed on your GitHub account: /home/dantopa/.ssh/id_ed25519.pub
+✓ Logged in as floquet
+

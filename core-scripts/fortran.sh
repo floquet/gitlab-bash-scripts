@@ -11,7 +11,7 @@ export gflags45="${gflags4} -fcheck=all -fcheck=do -fcheck=pointer -fno-protect-
 export gflags47="${gflags45} -Wfunction-elimination -faggressive-function-elimination" # polymorphic class arrays, single image coarrays, -Ofast
 export gflags48="${gflags47} -Wc-binding-type -Wrealloc-lhs-all" # unlimited polymorphic variables, assumed types
 export  gflags5="${gflags48} -Wuse-without-only -fdiagnostics-color=auto" # OpemMP fully implemented
-export  gflags6="${gflags5}  -Wconversion-extra" # Submodules fully supoorted
+export  gflags6="${gflags5}  -Wconversion-extra -Wno-tabs" # Submodules fully supoorted
 export  gflags7="${gflags6}  -finit-derived" # new RANDOM_NUMBER with per-thread state
 export  gflags8="${gflags7}"
 export  gflags9="${gflags8}"

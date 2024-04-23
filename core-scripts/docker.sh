@@ -68,7 +68,7 @@ function xiuhcoatlDocker(){
     echo "docker run -it -v ${HOME}/Dropbox:/Dropbox -v ${volume_ext}/atacama:/atacama -v ${volume_ext}/docker:/docker -v ${volume_ext}/gobi:/gobi -v ${volume_ext}/sonoran:/sonoran -v ${volume_ext}/repos:/repos -v ${volume_ext}/spacktivity:/spacktivity ${1}"
     docker run -it \
  -v ${HOME}/Dropbox:/Dropbox    \
- -v ${volume_ext}/Metztli:/Metztli          \
+# -v ${volume_ext}/Metztli:/Metztli          \
  -v ${volume_ext}/Infernum:/Infernum        \
  -v ${volume_ext}/Paradisum:/Paradisum      \
  -v ${volume_ext}/Purgatorium:/Purgatorium  \

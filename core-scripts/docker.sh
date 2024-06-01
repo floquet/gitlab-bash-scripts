@@ -2,7 +2,7 @@
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # alias bye="echo 'lsb_release -a; exit'; lsb_release -a; echo '\${myVM} = ${myVM}'; echo 'docker commit $(uname -n) \${myVM}'; exit"
-alias bye='echo "lsb_release -a; exit"; lsb_release -a; echo "\${myVM} = ${myVM}"; echo "docker commit $(uname -n) \${myVM}"; exit'
+alias bye='echo "lsb_release -a; exit"; lsb_release -a; echo "\${myVM} = ${myVM}"; echo "docker commit $(uname -n) \${myVM}"; echo "docker push ${myVM}"; exit'
 alias goodbye="echo 'uname -n ; lsb_release -a; exit'; uname -n; lsb_release -a; exit; echo 'docker commit $(uname -n) ${myVM}'"
 # https://superuser.com/questions/121627/how-to-get-elements-from-list-in-bash/121628
 alias session="echo $(uname -a) | cut -d' ' -f2"
@@ -12,9 +12,9 @@ alias prune="echo 'docker container prune'; docker container prune"
 alias dpmyvm="echo 'docker push ${myVM}' ; docker push ${myVM}"
 alias mirrorBigSpackMirror="echo 'spack mirror add local_filesystem file://${big_spack_mirror}';spack mirror add local_filesystem file://${big_spack_mirror}"
 
-export centos_version="7.9.2009"
+export centos_version="8.5"
 export ubuntu_version="22.04"
-export   amzn_version="2.0.20220316.0"
+export   amzn_version="20230"
 export debian_version="11.3"
 export    dbase="dantopa/base-centos:${centos_version}"
 export dscience="dantopa/science-centos:${centos_version}"

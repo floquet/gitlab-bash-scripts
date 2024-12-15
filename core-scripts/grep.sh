@@ -47,15 +47,15 @@ function g-general() {
 function g-filetype() {
     local ext="$1"
     shift
-    echo "Searching in .$ext files for: $*"
-    grep -inr --include=*.$ext "$@"
+    echo "Searching in .$ext files for: $* 2>/dev/null"
+    grep -inr --include=*.$ext "$@" 2>/dev/null
 }
 
 # g-achates: Searches for both "\newcommand{<pattern>}" and "\newcommand{ <pattern> }"
 function g-newcommand-tex() {
     local pattern="$1"
-    echo "Searching for in .tex files for \newcommand{${pattern} or \newcommand{ ${pattern}"
-    grep -inr --include=*.tex -e '\\newcommand{\\'"${pattern}"'' -e '\\newcommand{ \\'"${pattern}"''
+    echo "Searching for in .tex files for \newcommand{${pattern} or \newcommand{ ${pattern} 2>/dev/null"
+    grep -inr --include=*.tex -e '\\newcommand{\\'"${pattern}"'' -e '\\newcommand{ \\'"${pattern}"'' 2>/dev/null
 }
 
 # g-log: Logs grep results to a file
@@ -71,11 +71,11 @@ function g-log() {
 # g-achates: Searches for both "\newcommand{<pattern>}" and "\newcommand{ <pattern> }"
 # Written by Achates
 # Usage: g-achates <pattern>
-function g-achates() {
-    local pattern="$1"
-    echo "Searching for: \\newcommand{\\${pattern}}"
-    #grep -inr --include=*.tex "\\newcommand{\\${pattern}"
-    #rep -inr --include=*.tex "\\newcommand{\\$1"
+# function g-achates() {
+#     local pattern="$1"
+#     echo "Searching for: \\newcommand{\\${pattern}}"
+#     #grep -inr --include=*.tex "\\newcommand{\\${pattern}"
+#     #rep -inr --include=*.tex "\\newcommand{\\$1"
 }
 
 # grep_list: Lists available grep routines

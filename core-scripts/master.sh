@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
+printf "%s\n" "$(date) , $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # run first - slowest script
 #source "${core}/info.sh"
@@ -11,12 +11,14 @@ source "${core}/gcc.sh"
 source "${core}/git.sh"
 source "${core}/ssh.sh"
 source "${core}/vim.sh"
+source "${core}/grep.sh"
 source "${core}/make.sh"
 source "${core}/bash.sh"
 source "${core}/finds.sh"
 source "${core}/cmake.sh"
 source "${core}/python.sh"
 source "${core}/docker.sh"
+source "${core}/alias-navigation.sh"
 source "${core}/copy-configuration.sh"  &
 
 source "${core}/c.sh"

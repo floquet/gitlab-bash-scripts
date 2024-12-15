@@ -1,17 +1,55 @@
 #! /usr/bin/env bash
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
+# MacPorts PATH management
+alias macports_yes="export OLD_PATH='$PATH'; export PATH='/opt/local/bin:/opt/local/sbin:$PATH'; echo 'MacPorts PATH enabled.'"
+alias macports_no="export PATH='$OLD_PATH'; echo 'Reverted to original PATH.'"
+
+# GCC and Python version selection
 alias mp_gcc11='echo "sudo port select --set gcc mp-gcc11"; sudo port select --set gcc mp-gcc11'
 alias mp_gcc10='echo "sudo port select --set gcc mp-gcc10"; sudo port select --set gcc mp-gcc10'
-alias  mp_gcc9='echo "sudo port select --set gcc mp-gcc9";  sudo port select --set gcc mp-gcc9'
-alias  mp_gcc8='echo "sudo port select --set gcc mp-gcc8";  sudo port select --set gcc mp-gcc8'
 
-alias mp_python10='echo "sudo port select --set python mp-gcc11"; sudo port select --set gcc mp-gcc11'
-alias mp_gcc10='echo "sudo port select --set gcc mp-gcc10"; sudo port select --set gcc mp-gcc10'
+# MacPorts Maintenance
+mp_maintenance() {
+    if ! command -v port &>/dev/null; then
+        echo "❌ MacPorts (port) is not installed or not in PATH. Aborting."
+        return 1
+    fi
 
-# MacPorts Installer addition on 2019-12-04_at_00:07:42: adding an appropriate PATH variable for use with MacPorts.
-# export PATH="/Volumes/repos:/opt/local/bin:/opt/local/sbin:$PATH"
-alias macports_yes="export arXive_PATH='${PATH}' ; echo 'export PATH=/opt/local/bin:/opt/local/sbin:${PATH}' ; export PATH=/opt/local/bin:/opt/local/sbin:$PATH ; nice_path"
-alias macports_no="export PATH='${arXive_PATH}'  ; echo 'export PATH=${arXive_PATH}' ; export PATH=${arXive_PATH} ; nice_path"
+    echo "========== Starting MacPorts Maintenance =========="
 
-alias mp_maintenance='echo "sudo port -v selfupdate; sudo port -v upgrade outdated; sudo port -v reclaim"; sudo port -v selfupdate; echo ""; echo "@  @  @  @  @  begin upgrade"; sudo port -v upgrade outdated; echo ""; echo "@  @  @  @  @  begin reclaim"; sudo port -v reclaim'
+    echo "1. Performing selfupdate..."
+    if sudo port -v selfupdate; then
+        echo "✅ Selfupdate completed successfully."
+    else
+        echo "⚠️ Selfupdate failed. Continuing with the next step..."
+    fi
+
+    echo ""
+    echo "2. Upgrading outdated ports..."
+    if sudo port -v upgrade outdated; then
+        echo "✅ Upgrade completed successfully."
+    else
+        echo "⚠️ Upgrade failed. Please check the logs."
+    fi
+
+    echo ""
+    echo "3. Reclaiming unused space..."
+    if sudo port -v reclaim; then
+        echo "✅ Reclaim completed successfully."
+    else
+        echo "⚠️ Reclaim failed. Please check the logs."
+    fi
+
+    echo "========== MacPorts Maintenance Complete =========="
+}
+
+# Help function
+mp_help() {
+    echo "Available MacPorts Utilities:"
+    echo "  mp_maintenance     - Perform MacPorts maintenance (selfupdate, upgrade, reclaim)."
+    echo "  macports_yes       - Enable MacPorts-enhanced PATH."
+    echo "  macports_no        - Revert to the original PATH."
+    echo "  mp_gcc[8-11]       - Select specific GCC versions."
+}
+

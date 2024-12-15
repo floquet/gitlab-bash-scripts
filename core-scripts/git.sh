@@ -26,6 +26,11 @@ alias floquet="echo 'git remote add floquet https://github.com/floquet/spack.git
 
 alias sweep_repos="echo '. \${core}/git-puller.sh'; . ${core}/git-puller.sh"
 
+# 1Password: PAT-github-xiuhcoatl
+# Configure Git to securely store credentials (e.g., PAT) in the macOS Keychain, 
+# enabling automatic authentication for future Git operations.
+# git config --global credential.helper osxkeychain
+
 # git-aware prompt
 # https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
 # autoload -Uz vcs_info

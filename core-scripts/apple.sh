@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 #alias another_mathematica='open -n /Volumes/Macintosh\ HD/Applications/Wolfram/Mathematica\ 13.0.0.app'  # launch second kernel
@@ -34,3 +34,25 @@ profiler_tasker apple-profiler.txt
 
 alias show_hidden="echo 'defaults write com.apple.finder AppleShowAllFiles YES'; echo 'restart finder'; defaults write com.apple.finder AppleShowAllFiles YES"
 alias contents_apple='echo "ALIAS another_mathematica"; echo "write system_profile and sysctl to \${my_log} = ${my_log}"'
+
+# ** M A C O S   S Y S T E M   D E T A I L S **
+# Extract macOS version, codename, and Darwin kernel version
+
+os_version=$(sw_vers -productVersion)       # macOS version (e.g., 15.1.1)
+kernel_version=$(uname -r)                  # Darwin kernel version
+
+# Extract macOS codename dynamically using the AWK trick
+os_codename=$(awk '/SOFTWARE LICENSE AGREEMENT FOR macOS/ { 
+    match($0, /macOS [A-Za-z]+/); 
+    if (RSTART) print substr($0, RSTART+6, RLENGTH-6) 
+}' "/System/Library/CoreServices/Setup Assistant.app/Contents/Resources/en.lproj/OSXSoftwareLicense.rtf")
+
+# Export macOS system details
+export os="darwin-${kernel_version}"        # Kernel version with Darwin prefix
+export dist="${os_codename}"                # macOS codename (e.g., Sequoia)
+export release="${os_version}"              # macOS version
+export build=$(sw_vers -buildVersion)       # macOS build number
+
+# Print the macOS system details as confirmation
+printf "macOS %s %s, Darwin %s\n" "$dist" "$release" "$kernel_version"
+

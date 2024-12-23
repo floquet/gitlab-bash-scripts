@@ -76,7 +76,7 @@ function g-log() {
 #     echo "Searching for: \\newcommand{\\${pattern}}"
 #     #grep -inr --include=*.tex "\\newcommand{\\${pattern}"
 #     #rep -inr --include=*.tex "\\newcommand{\\$1"
-}
+#}
 
 # grep_list: Lists available grep routines
 # Written by Achates

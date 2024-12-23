@@ -15,6 +15,7 @@ source "${core}/grep.sh"
 source "${core}/make.sh"
 source "${core}/bash.sh"
 source "${core}/finds.sh"
+source "${core}/logs.sh" create
 source "${core}/cmake.sh"
 source "${core}/python.sh"
 source "${core}/docker.sh"

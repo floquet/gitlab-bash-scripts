@@ -1,0 +1,118 @@
+# Git, Zsh, and Bash Notes with Comments
+
+## 1. Credential Helper Configuration
+
+```bash
+git config --global credential.helper osxkeychain
+```
+
+### Purpose:
+
+- Store your GitHub Personal Access Token (PAT) securely using the macOS Keychain.
+- Simplifies Git authentication, removing the need to repeatedly input your username and PAT.
+
+### Key Action:
+
+- Uncomment and run:
+  ```bash
+  git config --global credential.helper osxkeychain
+  ```
+
+### Why This is Useful:
+
+- It ensures secure and seamless Git operations, especially with GitHub’s token-based authentication.
+
+---
+
+## 2. Git-Aware Prompt in Zsh
+
+```bash
+# git-aware prompt
+# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+# autoload -Uz vcs_info
+# precmd_vcs_info() { vcs_info }
+# precmd_functions+=( precmd_vcs_info )
+# setopt prompt_subst
+# RPROMPT=\$vcs_info_msg_0_
+# zstyle ':vcs_info:git:*' formats '%F{240}(%b)%r%f'
+# zstyle ':vcs_info:*' enable git
+```
+
+### Purpose:
+
+- Enable a **Git-aware prompt** in `zsh`, showing repository and branch information dynamically.
+
+### Example:
+
+- When in a Git repository:
+  ```
+  ~/projects (main)% 
+  ```
+  - `(main)` indicates the current branch.
+
+### Explanation:
+
+- **`autoload -Uz vcs_info`**: Loads the `vcs_info` function.
+- **`precmd_vcs_info`**: Updates the prompt before each command.
+- **`setopt prompt_subst`**: Enables dynamic information (e.g., Git status) in the prompt.
+- **`zstyle`**** configurations**: Customize the appearance of the Git-related info.
+
+### Why It Failed in Bash:
+
+- These commands are specific to `zsh` and will fail in `bash` with errors like `command not found`.
+- If you’re using `bash`, this block is not applicable.
+
+---
+
+## 3. Errors in `git.sh`
+
+```bash
+# root@ac0efb9c551b:core-scripts $ . git.sh
+# Mon Jan 20 22:46:31 CET 2020, git.sh
+# bash: autoload: command not found
+# bash: git.sh: line 80: syntax error: unexpected end of file
+```
+
+### Purpose:
+
+- This block documents an attempt to source `git.sh` in `bash`.
+
+### Key Issues:
+
+1. **`autoload`**** Error**:
+   - `autoload` is a `zsh`-specific command and isn’t recognized by `bash`.
+2. **Syntax Error**:
+   - The file `git.sh` appears to have an incomplete or broken structure, leading to a syntax error.
+
+### Recommendations:
+
+- Separate `bash` and `zsh` configurations to avoid mix-ups.
+- Review `git.sh` to ensure compatibility with the intended shell.
+
+---
+
+## Summary
+
+1. **Credential Helper** (Lines 29-32):
+
+   - Use the macOS Keychain to securely store Git credentials and simplify authentication.
+
+2. **Git-Aware Prompt** (Lines 34-42):
+
+   - Works only in `zsh`. Consider switching to `zsh` if you want this functionality.
+
+3. **Errors in ****`git.sh`** (Lines 44-47):
+
+   - Clean up incompatible commands and check the script for missing or incomplete lines.
+
+---
+
+## Troubleshooting
+
+- If stranded in `zsh`, switch back to `bash` by running:
+  ```bash
+  chsh -s /bin/bash
+  ```
+- If you want to try `zsh` again, make sure to clean up any incompatible configurations and test incrementally.
+
+Let me know if you need help adapting this further!

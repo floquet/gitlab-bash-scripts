@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
-
 # Script to set up the environment, customize the terminal, and record environment variables.
 # Author: Daniel
 # Improvements and comments: Achates (ChatGPT, OpenAI, December 2024)
+
+# Print the current date and script name in bold for logging purposes.
+printf '%s\n' "$(date), $(tput bold)\"${BASH_SOURCE[0]}\"$(tput sgr0)"
 
 ## --------------------------------------------------
 ## Set terminal title and prompt

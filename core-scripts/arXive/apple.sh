@@ -7,11 +7,6 @@ alias backup_mathematica="echo 'rsync -au --progress --exclude=".*" ${HOME}/Math
 alias mm_backup="rsync -au --progress --exclude=".*" ${HOME}/Mathematica_files/nb/. ${github}/experiment-mathematica/nb/."
 #alias mm_backup="rsync -au --progress --exclude=".*" ${HOME}/Mathematica_files/. ${github}/experiment-mathematica/."
 
-# 1Password: PAT-github-xiuhcoatl
-# Configure Git to securely store credentials (e.g., PAT) in the macOS Keychain, 
-# enabling automatic authentication for future Git operations.
-git config --global credential.helper osxkeychain
-
 function profiler_tasker(){
     #write_apple_profiler ${configuration}/${1}
     write_apple_profiler        ${locker}/${1}

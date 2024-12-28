@@ -19,8 +19,8 @@ alias mothership="echo 'git remote show origin'; git remote show origin"
 alias myurl="git config --get remote.origin.url"
 alias gpg_check='git verify-commit HEAD~0; export GPG_SIGNED=$?; echo "verify-commit exit code = \$GPG_SIGNED = $GPG_SIGNED"'
 
-% https://stackoverflow.com/questions/961101/git-find-all-uncommitted-locals-repos-in-a-directory-tree
-% find . -type d -name '.git' | while read dir ; do sh -c "cd $dir/../ && echo -e \"\nGIT STATUS IN ${dir//\.git/}\" && git status -s" ; done
+# https://stackoverflow.com/questions/961101/git-find-all-uncommitted-locals-repos-in-a-directory-tree
+# find . -type d -name '.git' | while read dir ; do sh -c "cd $dir/../ && echo -e \"\nGIT STATUS IN ${dir//\.git/}\" && git status -s" ; done
 
 alias floquet="echo 'git remote add floquet https://github.com/floquet/spack.git'; git remote add floquet https://github.com/floquet/spack.git"
 
@@ -53,49 +53,145 @@ function sign_gpg(){
 }
 
 function dantopa(){
-    git config --global user.name "Daniel Topa"
-    git config --global user.email dantopa@gmail.com
-    git config --global pull.rebase false
-    git config --global push.default simple
-    git config --global color.ui true
-    git config --global rerere.enabled true
-    git config --global core.editor "vim"
-    git config --global merge.tool "meld"
-}
+    echo "Setting Git configurations for Daniel Topa..."
 
-function get_git_proxies(){
-    echo 'http proxy: '
-    git config --global --get http.proxy
-    echo 'https proxy: '
-    git config --global --get https.proxy
+    # Set user details
+    git config --global user.name "Daniel Topa"
+    git config --global user.email "dantopa@gmail.com"
+
+    # General preferences
+    git config --global pull.rebase false      # Disable rebase on pull
+    git config --global push.default simple   # Simplify push behavior
+    git config --global color.ui true         # Enable colored output
+    git config --global rerere.enabled true   # Enable reuse of recorded resolutions
+    git config --global core.editor "vim"     # Set default editor
+    git config --global merge.tool "meld"     # Set default merge tool
+
+    # Use 'main' instead of 'master' as the default branch
+    git config --global init.defaultBranch "main"
+
+    # Set default diff and status verbosity
+    git config --global core.pager "less -FRX" # Pager for git output
+
+    # Set credential helper for macOS Keychain
+    if [[ "$(uname)" == "Darwin" ]]; then
+        git config --global credential.helper osxkeychain
+    fi
+
+    # Optional: Set up GPG signing if desired (replace KEY_ID with your GPG key ID)
+    git config --global commit.gpgSign true
+    git config --global user.signingkey "KEY_ID"
+
+    echo "Git configuration for Daniel Topa is complete."
 }
 
 function get_git_listing(){
-    git ls-files $1
+    if [ ! -d .git ]; then
+        echo "Error: Not a Git repository."
+        return 1
+    fi
+
+    if [ -z "$1" ]; then
+        echo "Listing all tracked files in the repository..."
+        git ls-files
+    else
+        echo "Searching for tracked files matching pattern: $1"
+        git ls-files "$1"
+    fi
+}
+
+function get_git_proxies(){
+    echo "Checking Git proxy settings..."
+    
+    # Fetch and display the HTTP proxy setting
+    local http_proxy
+    http_proxy=$(git config --global --get http.proxy)
+    if [ -n "$http_proxy" ]; then
+        echo "HTTP proxy: $http_proxy"
+    else
+        echo "HTTP proxy: Not configured"
+    fi
+
+    # Fetch and display the HTTPS proxy setting
+    local https_proxy
+    https_proxy=$(git config --global --get https.proxy)
+    if [ -n "$https_proxy" ]; then
+        echo "HTTPS proxy: $https_proxy"
+    else
+        echo "HTTPS proxy: Not configured"
+    fi
 }
 
 function garbage_collection(){
-    #declare -a myarray=$1
-    list=("$@")
-    echo "* * * start git garbage collection on ${list[@]}"
+    list=("$@") # Accept directories as arguments
+    echo "* * * Starting git garbage collection on: ${list[@]}"
+    pids=() # Array to hold PIDs of background processes
+
     for r in "${list[@]}"; do
-        # echo "\${r} = ${r}"
-        echo "cleaning ${r}"
-        eval cd \$${r}
-        #echo "\$(pwd) = $(pwd)"
-        git gc &
+        echo "Cleaning ${r}"
+
+        # Check if the directory exists
+        if [ -d "$r" ]; then
+            cd "$r" || { echo "Failed to cd into $r"; continue; }
+
+            # Ensure it's a Git repository
+            if [ -d .git ]; then
+                echo "Running git gc in $(pwd)"
+
+                # Run git garbage collection in the background
+                git gc &
+
+                # Capture the PID of the background process
+                # Using PIDs ensures we can monitor and wait for each process individually.
+                pids+=($!)
+            else
+                echo "Skipping $r: Not a Git repository."
+            fi
+        else
+            echo "Skipping $r: Directory does not exist."
+        fi
     done
-    echo "# # # end git garbage collection on ${list[@]}"
+
+    echo "Waiting for garbage collection processes to complete..."
+
+    # Wait for each background process to finish
+    for pid in "${pids[@]}"; do
+        # `wait $pid` ensures we handle each process individually, 
+        # making it possible to detect if any process fails.
+        wait "$pid" || echo "Process $pid failed."
+    done
+
+    echo "# # # End of git garbage collection on: ${list[@]}"
 }
 
 # https://askubuntu.com/questions/674333/how-to-pass-an-array-as-function-argument
 function clean_git_repos(){
-    export dirHere=$(pwd)
+    local dirHere=$(pwd) # Use local to avoid polluting the environment
 
-    garbage_collection ${repos_bitbucket}
-    garbage_collection ${repos_gitlab}
-    garbage_collection ${repos_github}
+    echo "Starting clean_git_repos from: $dirHere"
+    
+    # Check if repositories are defined
+    if [ -z "${repos_bitbucket+x}" ] || [ -z "${repos_gitlab+x}" ] || [ -z "${repos_github+x}" ]; then
+        echo "Error: Repository variables are not defined."
+        return 1
+    fi
 
+    # Run garbage collection for each group of repositories
+    garbage_collection "${repos_bitbucket[@]}"
+    garbage_collection "${repos_gitlab[@]}"
+    garbage_collection "${repos_github[@]}"
+
+    # Explicitly wait for garbage collection processes to complete
+    echo "Waiting for all garbage collection processes to finish..."
     wait
-    cd ${dirHere}
+
+    # Return to the original directory
+    if ! cd "$dirHere"; then
+        echo "Error: Failed to return to $dirHere"
+        return 1
+    fi
+    echo "Finished clean_git_repos"
 }
+
+
+

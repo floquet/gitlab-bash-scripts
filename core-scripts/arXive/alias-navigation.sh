@@ -12,7 +12,7 @@ printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 # Generate navigation aliases
 function generate_navigation_aliases() {
     # Define GitHub and Bitbucket directories
-    local github_dirs=("achates" "f" "genesis" "gitlab-bash-scripts" "jop" "phoenix" "sharing" "vault-fortran" "vault-latex")
+    local github_dirs=("achates" "f" "gitlab-bash-scripts" "jop" "phoenix" "sharing" "vault-fortran" "vault-latex")
     local bitbucket_dirs=("articles" "books-ams" "books-cup" "books-other" "books-springer" "mac-configurations" "oeuvre" "presentations")
 
     # Create GitHub aliases

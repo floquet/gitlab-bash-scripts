@@ -12,7 +12,7 @@ printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 export dir_config="${machine}-(${moniker})/${os}/${dist}-${release}"
 
 # #  L O C A L  M A C H I N E
-export    locker="${HOME}/.info"
+export    locker="${HOME}/.info/${moniker}"
 export    extras=".platform-specific.sh"
 export   scratch="${HOME}/scratch"
 

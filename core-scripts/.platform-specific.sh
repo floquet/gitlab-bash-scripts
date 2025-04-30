@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 # platform-specific.sh: Hook for Apple-specific scripts
 # Author: Daniel & Achates | Updated: $(date)
 

@@ -1,4 +1,5 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
+printf "%s\n" "$(date), $(tput bold)${BASH_SOURCE[0]}$(tput sgr0)"
 
 # Script generated on: Sat Dec 14 17:00:39 MST 2024
 # aliases for navigating repositories.
